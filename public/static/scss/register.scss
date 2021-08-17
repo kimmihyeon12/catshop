@@ -1,0 +1,229 @@
+.login-header {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+
+    padding: 30px;
+
+}
+
+.login-wrap {
+    display: flex;
+    justify-content: center;
+
+    .KG_section {
+        border-top: 1px solid lightgrey;
+        width: 450px;
+        padding: 20px 50px 20px 50px;
+
+        h2 {
+            font-size: 23px;
+            font-weight: 500;
+            margin: 20px 0px 20px 0px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .kakao {
+            border-radius: 5px;
+            margin-top: 12px;
+            text-align: center;
+            height: 60px;
+            line-height: 60px;
+            background-color: #fee500;
+            font-weight: 600;
+            font-size: 15px;
+            color: #111;
+            background-image: url(//storage.keepgrow.com/admin/campaign/20200611043456590.svg);
+            background-repeat: no-repeat;
+            background-size: 18px;
+            background-position: 15px;
+
+        }
+
+        .line {
+            height: 50px;
+            margin-top: 0px;
+            display: flex;
+            flex-basis: 100%;
+            align-items: center;
+            color: #b2b2b2;
+            font-size: 14px;
+            margin: 8px 0px;
+            font-size: 12px;
+        }
+
+        .line::before {
+            content: "";
+            flex-grow: 1;
+            margin-right: 10px;
+            background: #b2b2b2;
+            ;
+            height: 1px;
+            font-size: 0px;
+            line-height: 0px;
+        }
+
+        .line::after {
+            content: "";
+            flex-grow: 1;
+            margin-left: 10px;
+            background: #b2b2b2;
+            height: 1px;
+            font-size: 0px;
+            line-height: 0px;
+        }
+
+        .memberJoin {
+           
+            display: flex;
+            justify-content: center;
+            font-size: 12px;
+            padding-bottom: 20px;
+
+            .joinBtn {
+                font-size: 12px;
+            }
+        }
+
+        .ment {
+            border-top: 2px solid black;
+            padding-top: 20px;
+            margin-top: 20px;
+
+            b {
+                font-size: 14px;
+                font-weight: 600;
+
+            }
+
+            span {
+
+                font-size: 14px;
+            }
+
+            p {
+                margin-top: 10px;
+                font-size: 11px;
+                color: #b2b2b2;
+            }
+
+        }
+
+        .tabMenu {
+            display: flex;
+            border: 1px solid lightgray;
+            border-radius: 3px;
+
+            .active1 {
+                border: 0.5px solid lightgray;
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                font-size: 12px;
+                padding: 15px;
+            }
+
+            .active2 {
+                background-color: #efefef;
+
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                font-size: 12px;
+                padding: 15px;
+
+                a {
+                    color: grey;
+                }
+            }
+        }
+
+        .normalLogin_id {
+            margin-top: 25px;
+
+            .inputBox {
+
+                display: flex;
+                flex-direction: column;
+
+                .member_id {
+                    border-radius: 3px;
+                    border: 0.5px solid lightgray;
+                    padding: 15px;
+                    font-size: 14px;
+
+                }
+
+                input::placeholder {
+                    color: lightgray;
+
+                }
+
+                .member_passwd {
+                    border-radius: 3px;
+                    border: 0.5px solid lightgray;
+                    padding: 15px;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .loginBtn {
+            margin-top: 20px;
+            border-radius: 4px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            color: white;
+            font-weight: 600;
+            background-color: #31363d;
+            font-size: 15px;
+        }
+
+        .utilMenu {
+            margin-top: 25px;
+            font-size: 12px;
+
+            .right {
+                margin-left: 250px;
+            }
+        }
+
+        .snsLogin {
+            margin-bottom: 40px;
+            .snsLoginBox {
+                display: flex;
+            
+                .btn_naver {
+                    width: 50%;
+                    border: 0.5px solid lightgray;
+                    padding: 10px;
+                    background: url(//storage.keepgrow.com/admin/campaign/20200619043114905.svg) no-repeat 15px;
+                    a {
+                        color: grey;
+                        margin-left: 80px;
+                    }
+                    margin-right: 5px;
+                }
+                .btn_facebook {
+                    
+                    width: 50%;
+                    border: 0.5px solid lightgray;
+                    padding: 10px;
+                    background: url(//storage.keepgrow.com/admin/campaign/20200619043103257.svg) no-repeat 15px;
+                    a {
+                        color: grey;
+                        margin-left: 60px;
+                    }
+                }
+            }
+        }
+
+
+    }
+}
