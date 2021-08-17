@@ -17,8 +17,8 @@
         padding: 20px 50px 20px 50px;
 
         h2 {
-            font-size: 24px;
-            font-weight: 600;
+            font-size: 23px;
+            font-weight: 500;
             margin: 20px 0px 20px 0px;
         }
 
@@ -78,7 +78,7 @@
         }
 
         .memberJoin {
-            border-bottom: 2px solid black;
+           
             display: flex;
             justify-content: center;
             font-size: 12px;
@@ -88,23 +88,142 @@
                 font-size: 12px;
             }
         }
-        .ment{
-margin-top: 20px;
-            b{
+
+        .ment {
+            border-top: 2px solid black;
+            padding-top: 20px;
+            margin-top: 20px;
+
+            b {
                 font-size: 14px;
                 font-weight: 600;
-               
+
             }
-            span{
-               
+
+            span {
+
                 font-size: 14px;
             }
-            p{
+
+            p {
                 margin-top: 10px;
                 font-size: 11px;
                 color: #b2b2b2;
             }
-     
+
         }
+
+        .tabMenu {
+            display: flex;
+            border: 1px solid lightgray;
+            border-radius: 3px;
+
+            .active1 {
+                border: 0.5px solid lightgray;
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                font-size: 12px;
+                padding: 15px;
+            }
+
+            .active2 {
+                background-color: #efefef;
+
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                font-size: 12px;
+                padding: 15px;
+
+                a {
+                    color: grey;
+                }
+            }
+        }
+
+        .normalLogin_id {
+            margin-top: 25px;
+
+            .inputBox {
+
+                display: flex;
+                flex-direction: column;
+
+                .member_id {
+                    border-radius: 3px;
+                    border: 0.5px solid lightgray;
+                    padding: 15px;
+                    font-size: 14px;
+
+                }
+
+                input::placeholder {
+                    color: lightgray;
+
+                }
+
+                .member_passwd {
+                    border-radius: 3px;
+                    border: 0.5px solid lightgray;
+                    padding: 15px;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .loginBtn {
+            margin-top: 20px;
+            border-radius: 4px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            color: white;
+            font-weight: 600;
+            background-color: #31363d;
+            font-size: 15px;
+        }
+
+        .utilMenu {
+            margin-top: 25px;
+            font-size: 12px;
+
+            .right {
+                margin-left: 250px;
+            }
+        }
+
+        .snsLogin {
+            margin-bottom: 40px;
+            .snsLoginBox {
+                display: flex;
+            
+                .btn_naver {
+                    width: 50%;
+                    border: 0.5px solid lightgray;
+                    padding: 10px;
+                    background: url(//storage.keepgrow.com/admin/campaign/20200619043114905.svg) no-repeat 15px;
+                    a {
+                        color: grey;
+                        margin-left: 80px;
+                    }
+                    margin-right: 5px;
+                }
+                .btn_facebook {
+                    
+                    width: 50%;
+                    border: 0.5px solid lightgray;
+                    padding: 10px;
+                    background: url(//storage.keepgrow.com/admin/campaign/20200619043103257.svg) no-repeat 15px;
+                    a {
+                        color: grey;
+                        margin-left: 60px;
+                    }
+                }
+            }
+        }
+
+
     }
 }
