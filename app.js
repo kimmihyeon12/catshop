@@ -2,7 +2,8 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const router = require("./public/routers/page.routers");
+const pageRouter = require("./public/routers");
+const userRouter = require("./public/routers/user.router");
 const bodyParser = require("body-parser");
 const PORT = 3000; 
 //? ejs 타입의 템플릿 앤진 사용 및 view, static 경로 설정
@@ -15,9 +16,9 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended: true,
 }));
+app.use(userRouter);
 
-app.use("/",router)
-
+app.use(pageRouter);
 
 
 app.listen(PORT, () => console.log(`server is running on : ${PORT}`));
