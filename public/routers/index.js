@@ -29,6 +29,8 @@ router.get("/sale", (req, res)=>{
     res.render("sale");
 });
 
-
+router.get("/registerform", (req, res)=>{
+    res.render("registerform");
+});
 module.exports = router;
 

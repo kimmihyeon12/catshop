@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "view": "node-sass --watch ./public/static/scss/app.scss ./public/css/style.css",
+    "view": "node-sass --watch ./public/static/scss/app.scss ./public/static/css/style.css",
     "start": "nodemon app.js"
   },
   "keywords": [],

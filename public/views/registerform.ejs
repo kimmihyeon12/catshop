@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="top-banner"></div>
+    <div class="header">
+        <%-include('./shared/header')%>
+    </div>
+    <div class="register-wrap">
+        <div class="title">회원가입</div>
+        <div class="register-form">
+            <a href="#none" onclick="MemberAction.kakaosyncLogin('fb34fc496a9999e6217669ef8e17b22e')" class="kakao">
+                <img
+                    src="https://www.npmp.co.kr/web/img/login_sns1.png" alt="">카카오계정으로 더 쉽게 로그인 하기</a>
+            <p class="more_sns">
+                <a href="#none">다른 방법으로 로그인 하기</a>
+            </p>
+        </div>
+        <div class="join-form">
+            <div class="join-form-tbody">
+              <div>
+                  <div class="title-wrap">
+                    <p>아이디</p>
+                  
+                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif"
+                    alt="필수">
+                  </div>
+               
+                  <input type="text">
+                  (영문소문자/숫자, 4~16자)
+              </div>
+              <div>
+                <p>비밀번호</p>
+                
+                <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif"
+                alt="필수">
+                <input type="text">
+                (영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자)
+            </div>
+            <div>
+                <p>비밀번호 확인</p>
+                
+                <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif"
+                alt="필수">
+                <input type="text">
+              
+            </div>
+            <div>
+                <p>휴대전화</p>
+                
+                <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif"
+                alt="필수">
+                <input type="text">
+              
+            </div>
+            <div>
+                <p>이메일</p>
+                
+                <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif"
+                alt="필수">
+                <input type="text">
+              
+            </div>
+            <div>
+                <p>휴대전화</p>
+                
+                <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif"
+                alt="필수">
+                <input type="text">
+        
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

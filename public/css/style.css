@@ -129,7 +129,7 @@ a {
   color: black; }
 
 img {
-  display: inline; }
+  display: block; }
 
 @font-face {
   font-family: 'NanumBarunGothic';
@@ -140,7 +140,7 @@ body {
   font-family: 'NanumBarunGothic', 'serif'; }
   body .top-banner {
     height: 50px;
-    background-color: #819377;
+    background-color: yellow;
     z-index: 10;
     position: relative; }
   body .header {
@@ -512,39 +512,5 @@ body {
   body .register-wrap {
     border: 1px solid black; }
     body .register-wrap .title {
+      border: 1px solid black;
       font-size: 30px; }
-    body .register-wrap .register-form .kakao {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-sizing: border-box;
-      height: 50px;
-      line-height: 50px;
-      margin-top: 10px;
-      border-radius: 5px;
-      text-align: center;
-      color: #fff;
-      font-size: 14px;
-      width: 380px;
-      background: #f6d80c;
-      color: #000; }
-      body .register-wrap .register-form .kakao img {
-        width: 27px;
-        height: 25px;
-        margin-right: 15px; }
-    body .register-wrap .join-form {
-      display: flex;
-      flex-direction: column;
-      font-size: 13px; }
-      body .register-wrap .join-form img {
-        width: 5px;
-        height: 5px; }
-      body .register-wrap .join-form .join-form-tbody > div {
-        border-top: 1px solid black;
-        border-left: 1px solid black;
-        border-right: 1px solid black; }
-        body .register-wrap .join-form .join-form-tbody > div .title-wrap {
-          border-right: 1px solid black;
-          display: inline; }
-          body .register-wrap .join-form .join-form-tbody > div .title-wrap p {
-            display: inline; }
