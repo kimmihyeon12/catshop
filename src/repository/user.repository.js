@@ -31,3 +31,22 @@ exports.saveAll = (id, passwd, name, phone, email) => {
         return { success: false, message: "error"};
     });
 }
+
+exports.findOption = (id) => {
+    const query = `select * from users where user_id=${id};`
+    return new Promise(function (resolve, reject) {
+        connection.query(query, null, function (err, results, fields) {
+            if (err) reject(err);
+            resolve(results);
+        })
+    })
+    .then((data) => {
+         console.log(data);
+         if(data.length!=0) return { success: true, message: "아이디 존재"};
+        return { success: false, message: "아이디 존재하지 않음"};
+    })
+    .catch((err) => {
+         console.log(err);
+        return { success: false, message: "error"};
+    });
+}

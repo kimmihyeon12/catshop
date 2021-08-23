@@ -6,10 +6,12 @@ const passwd = document.querySelector(".member_passwd");
 const loginBtn = document.querySelector("button");
  
 loginBtn.addEventListener("click", () => {
+    console.log("click");
     const req = {
         id: id.value,
         passwd: passwd.value
     };
+   
     fetch("/login" ,{
         method:"POST",
         headers:{

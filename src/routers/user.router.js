@@ -8,9 +8,7 @@ const userContoller = require("../controller/user.controller");
 router.get("/login", (req, res) => {
     res.render("login");
 });
-router.post("/login", (req, res) => {
-    console.log(req.body);
-});
+router.post("/login",userContoller.login);
 
 
 //register
