@@ -10,7 +10,6 @@ loginBtn.addEventListener("click", () => {
         id: id.value,
         passwd: passwd.value
     };
-console.log(req);
     fetch("/login" ,{
         method:"POST",
         headers:{

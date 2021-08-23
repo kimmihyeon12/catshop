@@ -9,8 +9,8 @@ const phone = document.querySelector(".member_phone");
 const email = document.querySelector(".member_email");
 const loginBtn = document.querySelector("button");
  
-loginBtn.addEventListener("click", () => {
-    console.log("click");
+loginBtn.addEventListener("click", async () => {
+    
     const req = {
         id: id.value,
         passwd: passwd.value,
@@ -20,12 +20,19 @@ loginBtn.addEventListener("click", () => {
         email: email.value,
       
     };
-console.log(req);
-    fetch("/login" ,{
+ 
+    const res = await fetch("/registerform" ,{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
         },
         body:JSON.stringify(req),
+    })
+    .then(data=> data)
+    .then(data => data.json())
+    .catch(err => {
+        
+        throw new Error(err)
     });
+    console.log(res);
 })

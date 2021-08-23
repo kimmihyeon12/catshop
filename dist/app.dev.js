@@ -1,43 +1,20 @@
 "use strict";
 
+require("dotenv").config();
+
 var express = require("express");
 
 var app = express();
 
 var path = require("path");
 
-var pageRouter = require("./public/routers");
+var pageRouter = require("./src/routers");
 
-var userRouter = require("./public/routers/user.router");
+var userRouter = require("./src/routers/user.router");
 
 var bodyParser = require("body-parser");
 
-var PORT = 3000; //database
-
-var mysql = require('mysql'); // mysql 모듈 로드
-
-
-var conn = {
-  // mysql 접속 설정
-  host: 'localhost',
-  port: '3306',
-  user: 'root',
-  password: '1234',
-  database: 'catshop'
-};
-var connection = mysql.createConnection(conn); // DB 커넥션 생성
-
-connection.connect(); // DB 접속
-
-var sql = "select * from user";
-connection.query(sql, function (err, results, fields) {
-  // testQuery 실행
-  if (err) {
-    console.log(err);
-  }
-
-  console.log(results);
-}); //morgan
+var PORT = 3000; //morgan
 
 var logger = require('morgan');
 

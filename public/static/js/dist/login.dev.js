@@ -8,7 +8,6 @@ loginBtn.addEventListener("click", function () {
     id: id.value,
     passwd: passwd.value
   };
-  console.log(req);
   fetch("/login", {
     method: "POST",
     headers: {
