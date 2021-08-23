@@ -13,24 +13,10 @@ router.get("/dog", (req, res)=>{
 router.get("/cat", (req, res)=>{
     res.render("cat");
 });
-router.get("/login", (req, res)=>{
-    res.render("login");
-});
-
-router.post("/login", (req, res)=>{
-   console.log(req.body);
-});
-
-
-router.get("/register", (req, res)=>{
-    res.render("register");
-});
 router.get("/sale", (req, res)=>{
     res.render("sale");
 });
 
-router.get("/registerform", (req, res)=>{
-    res.render("registerform");
-});
+
 module.exports = router;
 

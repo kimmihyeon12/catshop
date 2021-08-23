@@ -510,41 +510,107 @@ body {
               color: grey;
               margin-left: 60px; }
   body .register-wrap {
-    border: 1px solid black; }
-    body .register-wrap .title {
-      font-size: 30px; }
-    body .register-wrap .register-form .kakao {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-sizing: border-box;
-      height: 50px;
-      line-height: 50px;
-      margin-top: 10px;
-      border-radius: 5px;
-      text-align: center;
-      color: #fff;
-      font-size: 14px;
-      width: 380px;
-      background: #f6d80c;
-      color: #000; }
-      body .register-wrap .register-form .kakao img {
-        width: 27px;
-        height: 25px;
-        margin-right: 15px; }
-    body .register-wrap .join-form {
-      display: flex;
-      flex-direction: column;
-      font-size: 13px; }
-      body .register-wrap .join-form img {
-        width: 5px;
-        height: 5px; }
-      body .register-wrap .join-form .join-form-tbody > div {
-        border-top: 1px solid black;
-        border-left: 1px solid black;
-        border-right: 1px solid black; }
-        body .register-wrap .join-form .join-form-tbody > div .title-wrap {
-          border-right: 1px solid black;
-          display: inline; }
-          body .register-wrap .join-form .join-form-tbody > div .title-wrap p {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    body .register-wrap .register {
+      width: 61vw; }
+      body .register-wrap .register .title {
+        margin-top: 100px;
+        font-size: 30px;
+        display: flex;
+        align-items: flex-start;
+        font-weight: 600; }
+      body .register-wrap .register .register-form {
+        margin-top: 20px;
+        border: 1px solid #dfdfdf;
+        width: 1022px;
+        height: 218px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; }
+        body .register-wrap .register .register-form .kakao {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-sizing: border-box;
+          height: 50px;
+          line-height: 50px;
+          margin-top: 10px;
+          border-radius: 5px;
+          text-align: center;
+          color: #fff;
+          font-size: 14px;
+          width: 380px;
+          background: #f6d80c;
+          color: #000;
+          margin-bottom: 30px; }
+          body .register-wrap .register .register-form .kakao img {
+            width: 27px;
+            height: 25px;
+            margin-right: 15px; }
+      body .register-wrap .register .join-form {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        font-size: 13px; }
+        body .register-wrap .register .join-form img {
+          width: 5px;
+          height: 5px; }
+        body .register-wrap .register .join-form .join-form-tbody > div {
+          align-items: center;
+          display: flex; }
+          body .register-wrap .register .join-form .join-form-tbody > div .title-wrap {
+            background-color: #fbfafa;
+            border-top: 1px solid #dfdfdf;
+            border-left: 1px solid #dfdfdf;
+            border-right: 1px solid #dfdfdf;
+            width: 120px;
+            padding: 10px;
             display: inline; }
+            body .register-wrap .register .join-form .join-form-tbody > div .title-wrap p {
+              display: inline; }
+          body .register-wrap .register .join-form .join-form-tbody > div .title-wrap-b {
+            border: 1px solid #dfdfdf;
+            background-color: #fbfafa;
+            width: 120px;
+            padding: 10px;
+            display: inline; }
+            body .register-wrap .register .join-form .join-form-tbody > div .title-wrap-b p {
+              display: inline; }
+          body .register-wrap .register .join-form .join-form-tbody > div .input-wrap {
+            width: 870px;
+            padding: 6.5px;
+            border-top: 1px solid #dfdfdf;
+            border-right: 1px solid #dfdfdf; }
+            body .register-wrap .register .join-form .join-form-tbody > div .input-wrap input {
+              width: 140px;
+              height: 20px;
+              border: 1px solid #dfdfdf; }
+          body .register-wrap .register .join-form .join-form-tbody > div .input-wrap-b {
+            width: 870px;
+            padding: 6px;
+            border-top: 1px solid #dfdfdf;
+            border-right: 1px solid #dfdfdf;
+            border-bottom: 1px solid #dfdfdf; }
+            body .register-wrap .register .join-form .join-form-tbody > div .input-wrap-b input {
+              width: 140px;
+              height: 20px;
+              border: 1px solid #dfdfdf; }
+      body .register-wrap .register .button-wrap {
+        width: 55vw;
+        margin-top: 50px;
+        display: flex;
+        justify-content: center; }
+        body .register-wrap .register .button-wrap .ec-base-button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 3px;
+          width: 110px;
+          height: 40px;
+          background-color: #819377; }
+          body .register-wrap .register .button-wrap .ec-base-button a {
+            color: white; }

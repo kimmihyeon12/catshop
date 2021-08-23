@@ -1,0 +1,187 @@
+.login-header {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.login-wrap {
+  display: flex;
+  justify-content: center;
+}
+.login-wrap .KG_section {
+  border-top: 1px solid lightgrey;
+  width: 450px;
+  padding: 20px 50px 20px 50px;
+}
+.login-wrap .KG_section h2 {
+  font-size: 23px;
+  font-weight: 500;
+  margin: 20px 0px 20px 0px;
+}
+.login-wrap .KG_section p {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+.login-wrap .KG_section .kakao {
+  border-radius: 5px;
+  margin-top: 12px;
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+  background-color: #fee500;
+  font-weight: 600;
+  font-size: 15px;
+  color: #111;
+  background-image: url(//storage.keepgrow.com/admin/campaign/20200611043456590.svg);
+  background-repeat: no-repeat;
+  background-size: 18px;
+  background-position: 15px;
+}
+.login-wrap .KG_section .line {
+  height: 50px;
+  margin-top: 0px;
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: #b2b2b2;
+  font-size: 14px;
+  margin: 8px 0px;
+  font-size: 12px;
+}
+.login-wrap .KG_section .line::before {
+  content: "";
+  flex-grow: 1;
+  margin-right: 10px;
+  background: #b2b2b2;
+  height: 1px;
+  font-size: 0px;
+  line-height: 0px;
+}
+.login-wrap .KG_section .line::after {
+  content: "";
+  flex-grow: 1;
+  margin-left: 10px;
+  background: #b2b2b2;
+  height: 1px;
+  font-size: 0px;
+  line-height: 0px;
+}
+.login-wrap .KG_section .memberJoin {
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+  padding-bottom: 20px;
+}
+.login-wrap .KG_section .memberJoin .joinBtn {
+  font-size: 12px;
+}
+.login-wrap .KG_section .ment {
+  border-top: 2px solid black;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+.login-wrap .KG_section .ment b {
+  font-size: 14px;
+  font-weight: 600;
+}
+.login-wrap .KG_section .ment span {
+  font-size: 14px;
+}
+.login-wrap .KG_section .ment p {
+  margin-top: 10px;
+  font-size: 11px;
+  color: #b2b2b2;
+}
+.login-wrap .KG_section .tabMenu {
+  display: flex;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+}
+.login-wrap .KG_section .tabMenu .active1 {
+  border: 0.5px solid lightgray;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+  padding: 15px;
+}
+.login-wrap .KG_section .tabMenu .active2 {
+  background-color: #efefef;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+  padding: 15px;
+}
+.login-wrap .KG_section .tabMenu .active2 a {
+  color: grey;
+}
+.login-wrap .KG_section .normalLogin_id {
+  margin-top: 25px;
+}
+.login-wrap .KG_section .normalLogin_id .inputBox {
+  display: flex;
+  flex-direction: column;
+}
+.login-wrap .KG_section .normalLogin_id .inputBox .member_id {
+  border-radius: 3px;
+  border: 0.5px solid lightgray;
+  padding: 15px;
+  font-size: 14px;
+}
+.login-wrap .KG_section .normalLogin_id .inputBox input::placeholder {
+  color: lightgray;
+}
+.login-wrap .KG_section .normalLogin_id .inputBox .member_passwd {
+  border-radius: 3px;
+  border: 0.5px solid lightgray;
+  padding: 15px;
+  font-size: 14px;
+}
+.login-wrap .KG_section .loginBtn {
+  margin-top: 20px;
+  border-radius: 4px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  color: white;
+  font-weight: 600;
+  background-color: #31363d;
+  font-size: 15px;
+}
+.login-wrap .KG_section .utilMenu {
+  margin-top: 25px;
+  font-size: 12px;
+}
+.login-wrap .KG_section .utilMenu .right {
+  margin-left: 250px;
+}
+.login-wrap .KG_section .snsLogin {
+  margin-bottom: 40px;
+}
+.login-wrap .KG_section .snsLogin .snsLoginBox {
+  display: flex;
+}
+.login-wrap .KG_section .snsLogin .snsLoginBox .btn_naver {
+  width: 50%;
+  border: 0.5px solid lightgray;
+  padding: 10px;
+  background: url(//storage.keepgrow.com/admin/campaign/20200619043114905.svg) no-repeat 15px;
+  margin-right: 5px;
+}
+.login-wrap .KG_section .snsLogin .snsLoginBox .btn_naver a {
+  color: grey;
+  margin-left: 80px;
+}
+.login-wrap .KG_section .snsLogin .snsLoginBox .btn_facebook {
+  width: 50%;
+  border: 0.5px solid lightgray;
+  padding: 10px;
+  background: url(//storage.keepgrow.com/admin/campaign/20200619043103257.svg) no-repeat 15px;
+}
+.login-wrap .KG_section .snsLogin .snsLoginBox .btn_facebook a {
+  color: grey;
+  margin-left: 60px;
+}
