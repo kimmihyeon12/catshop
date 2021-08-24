@@ -10,12 +10,12 @@ var userContoller = require("../controller/user.controller"); //login
 router.get("/login", function (req, res) {
   res.render("login");
 });
-router.post("/login", function (req, res) {
-  console.log(req.body);
-}); //register
+router.post("/login", userContoller.login); //register
 
 router.get("/registerform", function (req, res) {
   res.render("registerform");
 });
-router.post("/registerform", userContoller.register);
+router.post("/registerform", userContoller.register); //check
+
+router.get("/checkId/:id", userContoller.checkId);
 module.exports = router;

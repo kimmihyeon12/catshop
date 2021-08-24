@@ -14,5 +14,14 @@ loginBtn.addEventListener("click", function () {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(req)
+  }).then(function (res) {
+    return res.json();
+  }).then(function (res) {
+    if (res.data.success) {
+      console.log("이동");
+      location.href = "/";
+    } else {
+      alert(res.data.message.toString());
+    }
   });
 });

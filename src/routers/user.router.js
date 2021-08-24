@@ -17,5 +17,6 @@ router.get("/registerform", (req, res) => {
 });
 router.post("/registerform",userContoller.register);
 
-
+//check
+router.get("/checkId/:id",userContoller.checkId)
 module.exports = router;

@@ -16,7 +16,9 @@ router.get("/cat", (req, res)=>{
 router.get("/sale", (req, res)=>{
     res.render("sale");
 });
-
+router.get("/register", function (req, res) {
+    res.render("register");
+  });
 
 module.exports = router;
 

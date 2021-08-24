@@ -1,16 +1,44 @@
 "use strict";
- 
+
 
 const id = document.querySelector(".member_id");
+const idMessage = document.querySelector("#id");
 const passwd = document.querySelector(".member_passwd");
+const passwdMessage = document.querySelector("#passwd");
 const passwdOk = document.querySelector(".member_passwd_ok");
 const name = document.querySelector(".member_name");
 const phone = document.querySelector(".member_phone");
 const email = document.querySelector(".member_email");
 const loginBtn = document.querySelector("button");
- 
-loginBtn.addEventListener("click", async () => {
+
+console.log();
+
+id.addEventListener("change", async (event) => {
+  
+
+    const res = await fetch(`/checkId/${id.value}`)
+        .then((res) => res.json())
+        .then((res) => {
+            idMessage.textContent = `${res.data.message}. `
+
+
+        })
+});
+
+passwdOk.addEventListener("change", async (event) => {
+    console.log("비밀번호 검사");
     
+   if(passwd.value===passwdOk.value){
+    console.log("비밀번호 일치");
+    passwdMessage.textContent = `비밀번호가 일치합니다`;
+   }
+    
+
+ 
+});
+
+loginBtn.addEventListener("click", async () => {
+
     const req = {
         id: id.value,
         passwd: passwd.value,
@@ -18,21 +46,23 @@ loginBtn.addEventListener("click", async () => {
         name: name.value,
         phone: phone.value,
         email: email.value,
-      
+
     };
- 
-    const res = await fetch("/registerform" ,{
-        method:"POST",
-        headers:{
-            "Content-Type":"application/json"
+
+    const res = await fetch("/registerform", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
         },
-        body:JSON.stringify(req),
+        body: JSON.stringify(req),
+    }).then((res) => res.json()).then((res) => {
+        console.log("res");
+        console.log(res);
+        console.log(idMessage);
+        console.log(idMessage.textContent);
+        idMessage.textContent = `이미존재하는 아이디 입니다. (영문소문자/숫자, 4~16자)`
+
+
     })
-    .then(data=> data)
-    .then(data => data.json())
-    .catch(err => {
-        
-        throw new Error(err)
-    });
-    console.log(res);
+
 })

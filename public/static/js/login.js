@@ -6,7 +6,6 @@ const passwd = document.querySelector(".member_passwd");
 const loginBtn = document.querySelector("button");
  
 loginBtn.addEventListener("click", () => {
-    console.log("click");
     const req = {
         id: id.value,
         passwd: passwd.value
@@ -18,5 +17,14 @@ loginBtn.addEventListener("click", () => {
             "Content-Type":"application/json"
         },
         body:JSON.stringify(req),
-    });
+    }).then((res)=> res.json()).then((res)=>{
+        if(res.data.success){
+            console.log("이동")
+            location.href="/";
+        }else{
+            alert(res.data.message.toString())
+        }
+ 
+
+    })
 })

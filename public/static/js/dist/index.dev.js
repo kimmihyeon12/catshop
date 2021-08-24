@@ -10,8 +10,6 @@ var count = 0;
 var index = 0;
 var pageicon = document.querySelectorAll(".pagination span");
 document.addEventListener('scroll', function () {
-  console.log(window.scrollY);
-
   if (window.scrollY >= 60) {
     catagory.style.position = "fixed";
     topBanner.style.height = "0px";
