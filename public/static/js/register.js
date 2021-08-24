@@ -8,33 +8,49 @@ const passwdMessage = document.querySelector("#passwd");
 const passwdOk = document.querySelector(".member_passwd_ok");
 const name = document.querySelector(".member_name");
 const phone = document.querySelector(".member_phone");
+const phoneMessage = document.querySelector("#phone");
 const email = document.querySelector(".member_email");
 const loginBtn = document.querySelector("button");
 
 console.log();
 
 id.addEventListener("change", async (event) => {
-  
-
     const res = await fetch(`/checkId/${id.value}`)
         .then((res) => res.json())
         .then((res) => {
-            idMessage.textContent = `${res.data.message}. `
-
-
+            res.data.success ? idMessage.style.color = `red` : idMessage.style.color = `black`;
+            idMessage.textContent = `${res.data.message}. `;
         })
 });
 
 passwdOk.addEventListener("change", async (event) => {
-    console.log("비밀번호 검사");
-    
-   if(passwd.value===passwdOk.value){
-    console.log("비밀번호 일치");
-    passwdMessage.textContent = `비밀번호가 일치합니다`;
-   }
-    
+    if (passwd.value === passwdOk.value) {
+        passwdMessage.textContent = `비밀번호가 일치합니다`;
+        passwdMessage.style.color = `black`;
+    } else {
+        passwdMessage.textContent = `비밀번호가 일치하지 않습니다`;
+        passwdMessage.style.color = `red`;
+    }
+});
 
- 
+
+phone.addEventListener("change", async (event) => {
+    const res = await fetch(`/checkPhone/${phone.value}`)
+    .then((res) => res.json())
+    .then((res) => {
+         res.data.success ? phoneMessage.style.color = `red` : phoneMessage.style.color = `black`;
+        phoneMessage.textContent = `${res.data.message}. `;
+    })
+});
+
+email.addEventListener("change", async (event) => {
+    if (passwd.value === passwdOk.value) {
+        passwdMessage.textContent = `비밀번호가 일치합니다`;
+        passwdMessage.style.color = `black`;
+    } else {
+        passwdMessage.textContent = `비밀번호가 일치하지 않습니다`;
+        passwdMessage.style.color = `red`;
+    }
 });
 
 loginBtn.addEventListener("click", async () => {

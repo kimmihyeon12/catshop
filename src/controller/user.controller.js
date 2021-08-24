@@ -110,14 +110,20 @@ exports.login = async (req, res) => {
 
 exports.checkId= async(req,res)=>{
     const id = req.params.id;
-    console.log(id);
     const vaildId = await userRepository.findId(id);
     return res.json({
         data: vaildId
     });
 
 };
+exports.checkPhone= async(req,res)=>{
+    const phone = req.params.phone;
+    const vaildId = await userRepository.findPhone(phone);
+    return res.json({
+        data: vaildId
+    });
 
+};
 // es6 
 // import export 
 /**

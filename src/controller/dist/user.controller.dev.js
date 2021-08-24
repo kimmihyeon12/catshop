@@ -197,19 +197,42 @@ exports.checkId = function _callee3(req, res) {
       switch (_context3.prev = _context3.next) {
         case 0:
           id = req.params.id;
-          console.log(id);
-          _context3.next = 4;
+          _context3.next = 3;
           return regeneratorRuntime.awrap(userRepository.findId(id));
 
-        case 4:
+        case 3:
           vaildId = _context3.sent;
           return _context3.abrupt("return", res.json({
             data: vaildId
           }));
 
-        case 6:
+        case 5:
         case "end":
           return _context3.stop();
+      }
+    }
+  });
+};
+
+exports.checkPhone = function _callee4(req, res) {
+  var phone, vaildId;
+  return regeneratorRuntime.async(function _callee4$(_context4) {
+    while (1) {
+      switch (_context4.prev = _context4.next) {
+        case 0:
+          phone = req.params.phone;
+          _context4.next = 3;
+          return regeneratorRuntime.awrap(userRepository.findPhone(phone));
+
+        case 3:
+          vaildId = _context4.sent;
+          return _context4.abrupt("return", res.json({
+            data: vaildId
+          }));
+
+        case 5:
+        case "end":
+          return _context4.stop();
       }
     }
   });

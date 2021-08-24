@@ -19,4 +19,5 @@ router.post("/registerform",userContoller.register);
 
 //check
 router.get("/checkId/:id",userContoller.checkId)
+router.get("/checkphone/:phone",userContoller.checkPhone)
 module.exports = router;
