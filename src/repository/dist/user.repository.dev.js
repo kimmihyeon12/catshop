@@ -42,6 +42,11 @@ exports.saveAll = function (id, passwd, name, phone, email) {
 
 exports.findId = function (id) {
   var query = "select * from users where user_id='".concat(id, "';");
+  var checkId = CheckId(id);
+  if (!checkId) return {
+    success: true,
+    message: "아이디 형식을 확인해주세요"
+  };
   return new Promise(function (resolve, reject) {
     connection.query(query, null, function (err, results, fields) {
       if (err) reject(err);
@@ -67,7 +72,11 @@ exports.findId = function (id) {
 
 exports.findPhone = function (phone) {
   var query = "select * from users where phone_number='".concat(phone, "';");
-  console.log(query);
+  var checkphone = CheckPhone(phone);
+  if (!checkphone) return {
+    success: true,
+    message: "핸드폰번호 형식을 확인해주세요"
+  };
   return new Promise(function (resolve, reject) {
     connection.query(query, null, function (err, results, fields) {
       if (err) reject(err);
@@ -92,7 +101,11 @@ exports.findPhone = function (phone) {
 
 exports.findEmail = function (email) {
   var query = "select * from users where email='".concat(email, "';");
-  console.log(query);
+  var checkEmail = CheckEmail(email);
+  if (!checkEmail) return {
+    success: true,
+    message: "이메일 형식을 확인해주세요"
+  };
   return new Promise(function (resolve, reject) {
     connection.query(query, null, function (err, results, fields) {
       if (err) reject(err);
@@ -101,7 +114,7 @@ exports.findEmail = function (email) {
   }).then(function (data) {
     if (data.length != 0) return {
       success: true,
-      message: "이메일 존재함"
+      message: "존재하는 이메일 입니다"
     };
     return {
       success: false,
@@ -138,3 +151,24 @@ exports.findPasswd = function (id, passwd) {
     };
   });
 };
+
+function CheckEmail(e) {
+  var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+
+  if (!reg_email.test(e)) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function CheckPhone(p) {
+  p = p.split('-').join('');
+  var regPhone = /^((01[1|6|7|8|9])[1-9]+[0-9]{6,7})|(010[1-9][0-9]{7})$/;
+  return regPhone.test(p);
+}
+
+function CheckId(i) {
+  var regId = /^[a-z0-9]{4,16}$/;
+  return regId.test(i);
+}

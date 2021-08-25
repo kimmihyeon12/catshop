@@ -34,7 +34,7 @@ exports.register = async (req, res) => {
         return res.status(200).json({
             data:{
                 "success": false,
-                "message": "존재하는 아이디 입니다"
+                "message": vaildId.message
             }
         });
     }
@@ -42,7 +42,7 @@ exports.register = async (req, res) => {
         return res.status(200).json({
             data:{
                 "success": false,
-                "message": "존재하는 핸드폰번호 입니다"
+                "message": vaildPhone.message
             }
         });
     }
@@ -50,7 +50,7 @@ exports.register = async (req, res) => {
         return res.status(200).json({
             data:{
                 "success": false,
-                "message": "존재하는 이메일 입니다"
+                "message": vaildEmail.message
             }
         });
     }
@@ -118,9 +118,18 @@ exports.checkId= async(req,res)=>{
 };
 exports.checkPhone= async(req,res)=>{
     const phone = req.params.phone;
-    const vaildId = await userRepository.findPhone(phone);
+    const vaildphone = await userRepository.findPhone(phone);
     return res.json({
-        data: vaildId
+        data: vaildphone
+    });
+
+};
+
+exports.checkEmail= async(req,res)=>{
+    const email = req.params.email;
+    const vaildemail = await userRepository.findEmail(email);
+    return res.json({
+        data: vaildemail
     });
 
 };

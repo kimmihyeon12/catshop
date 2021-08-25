@@ -18,6 +18,7 @@ router.get("/registerform", (req, res) => {
 router.post("/registerform",userContoller.register);
 
 //check
-router.get("/checkId/:id",userContoller.checkId)
-router.get("/checkphone/:phone",userContoller.checkPhone)
+router.get("/checkId/:id",userContoller.checkId);
+router.get("/checkphone/:phone",userContoller.checkPhone);
+router.get("/checkemail/:email",userContoller.checkEmail);
 module.exports = router;

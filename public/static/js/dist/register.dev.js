@@ -9,6 +9,7 @@ var name = document.querySelector(".member_name");
 var phone = document.querySelector(".member_phone");
 var phoneMessage = document.querySelector("#phone");
 var email = document.querySelector(".member_email");
+var emailMessage = document.querySelector("#email");
 var loginBtn = document.querySelector("button");
 console.log();
 id.addEventListener("change", function _callee(event) {
@@ -80,19 +81,23 @@ phone.addEventListener("change", function _callee3(event) {
   });
 });
 email.addEventListener("change", function _callee4(event) {
+  var res;
   return regeneratorRuntime.async(function _callee4$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
         case 0:
-          if (passwd.value === passwdOk.value) {
-            passwdMessage.textContent = "\uBE44\uBC00\uBC88\uD638\uAC00 \uC77C\uCE58\uD569\uB2C8\uB2E4";
-            passwdMessage.style.color = "black";
-          } else {
-            passwdMessage.textContent = "\uBE44\uBC00\uBC88\uD638\uAC00 \uC77C\uCE58\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4";
-            passwdMessage.style.color = "red";
-          }
+          _context4.next = 2;
+          return regeneratorRuntime.awrap(fetch("/checkEmail/".concat(email.value)).then(function (res) {
+            return res.json();
+          }).then(function (res) {
+            res.data.success ? emailMessage.style.color = "red" : emailMessage.style.color = "black";
+            emailMessage.textContent = "".concat(res.data.message, ". ");
+          }));
 
-        case 1:
+        case 2:
+          res = _context4.sent;
+
+        case 3:
         case "end":
           return _context4.stop();
       }
@@ -123,11 +128,12 @@ loginBtn.addEventListener("click", function _callee5() {
           }).then(function (res) {
             return res.json();
           }).then(function (res) {
-            console.log("res");
-            console.log(res);
-            console.log(idMessage);
-            console.log(idMessage.textContent);
-            idMessage.textContent = "\uC774\uBBF8\uC874\uC7AC\uD558\uB294 \uC544\uC774\uB514 \uC785\uB2C8\uB2E4. (\uC601\uBB38\uC18C\uBB38\uC790/\uC22B\uC790, 4~16\uC790)";
+            if (res.data.success) {
+              alert("냥품명품에 오신것을 환영합니다");
+              location.href = "/";
+            } else {
+              alert(res.data.message.toString());
+            }
           }));
 
         case 3:

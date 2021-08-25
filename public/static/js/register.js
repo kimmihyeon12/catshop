@@ -10,6 +10,7 @@ const name = document.querySelector(".member_name");
 const phone = document.querySelector(".member_phone");
 const phoneMessage = document.querySelector("#phone");
 const email = document.querySelector(".member_email");
+const emailMessage = document.querySelector("#email");
 const loginBtn = document.querySelector("button");
 
 console.log();
@@ -35,6 +36,7 @@ passwdOk.addEventListener("change", async (event) => {
 
 
 phone.addEventListener("change", async (event) => {
+ 
     const res = await fetch(`/checkPhone/${phone.value}`)
     .then((res) => res.json())
     .then((res) => {
@@ -44,13 +46,13 @@ phone.addEventListener("change", async (event) => {
 });
 
 email.addEventListener("change", async (event) => {
-    if (passwd.value === passwdOk.value) {
-        passwdMessage.textContent = `비밀번호가 일치합니다`;
-        passwdMessage.style.color = `black`;
-    } else {
-        passwdMessage.textContent = `비밀번호가 일치하지 않습니다`;
-        passwdMessage.style.color = `red`;
-    }
+ 
+    const res = await fetch(`/checkEmail/${email.value}`)
+    .then((res) => res.json())
+    .then((res) => {
+         res.data.success ? emailMessage.style.color = `red` : emailMessage.style.color = `black`;
+         emailMessage.textContent = `${res.data.message}. `;
+    })
 });
 
 loginBtn.addEventListener("click", async () => {
@@ -72,11 +74,15 @@ loginBtn.addEventListener("click", async () => {
         },
         body: JSON.stringify(req),
     }).then((res) => res.json()).then((res) => {
-        console.log("res");
-        console.log(res);
-        console.log(idMessage);
-        console.log(idMessage.textContent);
-        idMessage.textContent = `이미존재하는 아이디 입니다. (영문소문자/숫자, 4~16자)`
+  
+        if(res.data.success){
+            alert("냥품명품에 오신것을 환영합니다");
+            location.href="/";
+        }else{
+            alert(res.data.message.toString())
+        }
+       
+     
 
 
     })

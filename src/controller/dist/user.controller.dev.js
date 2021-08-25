@@ -62,7 +62,7 @@ exports.register = function _callee(req, res) {
           return _context.abrupt("return", res.status(200).json({
             data: {
               "success": false,
-              "message": "존재하는 아이디 입니다"
+              "message": vaildId.message
             }
           }));
 
@@ -75,7 +75,7 @@ exports.register = function _callee(req, res) {
           return _context.abrupt("return", res.status(200).json({
             data: {
               "success": false,
-              "message": "존재하는 핸드폰번호 입니다"
+              "message": vaildPhone.message
             }
           }));
 
@@ -88,7 +88,7 @@ exports.register = function _callee(req, res) {
           return _context.abrupt("return", res.status(200).json({
             data: {
               "success": false,
-              "message": "존재하는 이메일 입니다"
+              "message": vaildEmail.message
             }
           }));
 
@@ -215,7 +215,7 @@ exports.checkId = function _callee3(req, res) {
 };
 
 exports.checkPhone = function _callee4(req, res) {
-  var phone, vaildId;
+  var phone, vaildphone;
   return regeneratorRuntime.async(function _callee4$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
@@ -225,14 +225,38 @@ exports.checkPhone = function _callee4(req, res) {
           return regeneratorRuntime.awrap(userRepository.findPhone(phone));
 
         case 3:
-          vaildId = _context4.sent;
+          vaildphone = _context4.sent;
           return _context4.abrupt("return", res.json({
-            data: vaildId
+            data: vaildphone
           }));
 
         case 5:
         case "end":
           return _context4.stop();
+      }
+    }
+  });
+};
+
+exports.checkEmail = function _callee5(req, res) {
+  var email, vaildemail;
+  return regeneratorRuntime.async(function _callee5$(_context5) {
+    while (1) {
+      switch (_context5.prev = _context5.next) {
+        case 0:
+          email = req.params.email;
+          _context5.next = 3;
+          return regeneratorRuntime.awrap(userRepository.findEmail(email));
+
+        case 3:
+          vaildemail = _context5.sent;
+          return _context5.abrupt("return", res.json({
+            data: vaildemail
+          }));
+
+        case 5:
+        case "end":
+          return _context5.stop();
       }
     }
   });
