@@ -614,3 +614,30 @@ body {
           background-color: #819377; }
           body .register-wrap .register .button-wrap .ec-base-button a {
             color: white; }
+  body .product-wrap {
+    border: 1px solid black; }
+    body .product-wrap .detailArea {
+      display: flex; }
+      body .product-wrap .detailArea .product-img .main-img img {
+        width: 502px;
+        height: 502px; }
+      body .product-wrap .detailArea .product-img .sub-img ul {
+        display: flex; }
+        body .product-wrap .detailArea .product-img .sub-img ul img {
+          width: 67px;
+          height: 67px; }
+      body .product-wrap .detailArea .product-info .title {
+        font-size: 24px; }
+      body .product-wrap .detailArea .product-info .product-detail ul li {
+        font-size: 16px; }
+        body .product-wrap .detailArea .product-info .product-detail ul li span {
+          color: #999999; }
+        body .product-wrap .detailArea .product-info .product-detail ul li .tr {
+          color: black;
+          font-weight: 600;
+          width: 200px;
+          border: 1px solid black; }
+        body .product-wrap .detailArea .product-info .product-detail ul li .celling-price {
+          color: black;
+          font-weight: 600;
+          font-size: 20px; }

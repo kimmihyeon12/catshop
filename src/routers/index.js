@@ -16,6 +16,9 @@ router.get("/cat", (req, res)=>{
 router.get("/sale", (req, res)=>{
     res.render("sale");
 });
+router.get("/product", function (req, res) {
+    res.render("product");
+  });
 router.get("/register", function (req, res) {
     res.render("register");
   });

@@ -1,0 +1,55 @@
+.product-wrap{
+    border:1px solid black;
+    .detailArea{
+        display: flex;
+        .product-img{
+            .main-img{
+                img{
+                width: 502px;
+                height: 502px;   
+                }
+                
+            }
+            .sub-img{
+               
+                ul{
+                    display: flex;
+                    img{
+                        width: 67px;
+                        height: 67px;    
+                        }
+                }
+                
+                
+            }
+
+        }
+        .product-info{
+            .title{
+                font-size: 24px;
+            }
+            .product-detail{
+                ul{
+                    li{
+                        font-size: 16px;
+                        span{
+                            color: #999999;
+                        }
+                        .tr{
+                            color: black;
+                            font-weight: 600;
+                            width: 200px;
+                            border:1px solid black;
+                        }
+                        .celling-price{
+                            color: black;
+                            font-weight: 600;
+                            font-size: 20px;
+                        }
+                       
+                    }
+                }
+            }
+        }
+    }
+}
