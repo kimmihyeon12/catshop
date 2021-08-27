@@ -1,6 +1,5 @@
 "use strict";
 
-console.log("index.js");
 var catagory = document.querySelector(".catagory-wrap");
 var topBanner = document.querySelector(".top-banner");
 var sliderContainer = document.querySelector(".slider-container");
@@ -23,11 +22,8 @@ document.addEventListener('scroll', function () {
   }
 });
 setInterval(function () {
-  console.log(index);
-
   for (var i = 0; i < pageicon.length; i++) {
     if (i == index) {
-      console.log(index);
       pageicon[i].style.width = "20px";
       pageicon[i].style.backgroundColor = "black";
     } else {

@@ -5,6 +5,7 @@ const app = express();
 const path = require("path");
 const pageRouter = require("./src/routers");
 const userRouter = require("./src/routers/user.router");
+const productRouter = require("./src/routers/product.router");
 const bodyParser = require("body-parser");
 const PORT = 3000; 
 
@@ -24,6 +25,6 @@ app.use(express.urlencoded({
 }));
 app.use(userRouter);
 app.use(pageRouter);
-
+app.use(productRouter);
 
 app.listen(PORT, () => console.log(`server is running on : ${PORT}`));

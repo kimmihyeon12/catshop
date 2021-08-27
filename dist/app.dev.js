@@ -12,6 +12,8 @@ var pageRouter = require("./src/routers");
 
 var userRouter = require("./src/routers/user.router");
 
+var productRouter = require("./src/routers/product.router");
+
 var bodyParser = require("body-parser");
 
 var PORT = 3000; //morgan
@@ -31,6 +33,7 @@ app.use(express.urlencoded({
 }));
 app.use(userRouter);
 app.use(pageRouter);
+app.use(productRouter);
 app.listen(PORT, function () {
   return console.log("server is running on : ".concat(PORT));
 });

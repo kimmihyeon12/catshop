@@ -36,23 +36,23 @@ passwdOk.addEventListener("change", async (event) => {
 
 
 phone.addEventListener("change", async (event) => {
- 
+
     const res = await fetch(`/checkPhone/${phone.value}`)
-    .then((res) => res.json())
-    .then((res) => {
-         res.data.success ? phoneMessage.style.color = `red` : phoneMessage.style.color = `black`;
-        phoneMessage.textContent = `${res.data.message}. `;
-    })
+        .then((res) => res.json())
+        .then((res) => {
+            res.data.success ? phoneMessage.style.color = `red` : phoneMessage.style.color = `black`;
+            phoneMessage.textContent = `${res.data.message}. `;
+        })
 });
 
 email.addEventListener("change", async (event) => {
- 
+
     const res = await fetch(`/checkEmail/${email.value}`)
-    .then((res) => res.json())
-    .then((res) => {
-         res.data.success ? emailMessage.style.color = `red` : emailMessage.style.color = `black`;
-         emailMessage.textContent = `${res.data.message}. `;
-    })
+        .then((res) => res.json())
+        .then((res) => {
+            res.data.success ? emailMessage.style.color = `red` : emailMessage.style.color = `black`;
+            emailMessage.textContent = `${res.data.message}. `;
+        })
 });
 
 loginBtn.addEventListener("click", async () => {
@@ -74,15 +74,15 @@ loginBtn.addEventListener("click", async () => {
         },
         body: JSON.stringify(req),
     }).then((res) => res.json()).then((res) => {
-  
-        if(res.data.success){
+
+        if (res.data.success) {
             alert("냥품명품에 오신것을 환영합니다");
-            location.href="/";
-        }else{
+            location.href = "/";
+        } else {
             alert(res.data.message.toString())
         }
-       
-     
+
+
 
 
     })

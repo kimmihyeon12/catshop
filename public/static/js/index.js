@@ -1,4 +1,4 @@
-console.log("index.js");
+"use strict";
 const catagory =document.querySelector(".catagory-wrap");
 const topBanner =document.querySelector(".top-banner");
 const sliderContainer =document.querySelector(".slider-container");
@@ -21,15 +21,15 @@ document.addEventListener('scroll', () => {
     catagory.style.backgroundColor=`transparent`;
     catagory.style.borderBottom=`1px transparent solid`;
     
- }
+}
     });
 
-  
+
     setInterval(function() {
-        console.log(index);
+
         for(let i=0; i<pageicon.length; i++){
             if(i==index){
-                console.log(index);
+
                 pageicon[i].style.width=`20px`;
                 pageicon[i].style.backgroundColor=`black`;
             }
