@@ -44,20 +44,21 @@ exports.getproducts = function _callee(req, res) {
 };
 
 exports.getsubproducts = function _callee2(req, res) {
-  var catagory, result;
+  var subcatagory, result;
   return regeneratorRuntime.async(function _callee2$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          catagory = req.params.catagory;
-          _context2.next = 3;
-          return regeneratorRuntime.awrap(productRepository.selectPartial(catagory));
+          subcatagory = req.params.subcatagory;
+          console.log("subcatagory".concat(subcatagory));
+          _context2.next = 4;
+          return regeneratorRuntime.awrap(productRepository.selectPartial(subcatagory));
 
-        case 3:
+        case 4:
           result = _context2.sent;
 
           if (!result.success) {
-            _context2.next = 8;
+            _context2.next = 9;
             break;
           }
 
@@ -68,7 +69,7 @@ exports.getsubproducts = function _callee2(req, res) {
             }
           }));
 
-        case 8:
+        case 9:
           return _context2.abrupt("return", res.status(200).json({
             data: {
               "success": false,
@@ -76,7 +77,7 @@ exports.getsubproducts = function _callee2(req, res) {
             }
           }));
 
-        case 9:
+        case 10:
         case "end":
           return _context2.stop();
       }

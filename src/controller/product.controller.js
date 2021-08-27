@@ -26,9 +26,10 @@ exports.getproducts = async (req, res) => {
 
 exports.getsubproducts = async (req, res) => {
     const {
-        catagory
+        subcatagory
     } = req.params;
-    const result = await productRepository.selectPartial(catagory);
+    console.log(`subcatagory${subcatagory}`);
+    const result = await productRepository.selectPartial(subcatagory);
     if (result.success) {
         return res.status(200).json({
             data: {

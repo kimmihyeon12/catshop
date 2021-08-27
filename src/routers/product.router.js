@@ -2,7 +2,14 @@
 const express = require("express");
 const router = express.Router();
 const productController = require("../controller/product.controller");
-console.log("product router");
+
+//카테고리 전체보기 👍
+//1 강아지용품 2 고양이용품
 router.get("/getproducts/:catagory",productController.getproducts);
+
+//카테고리 부분보기 👍
+//1 강아지용품-장난감 2 강아지용품-라이프용품 3 강아지용품-간식
+//4 고양이용품-장난감 5 고양이용품-라이프용품 6 고양이용품-간식
+router.get("/getsubproducts/:subcatagory",productController.getsubproducts);
 
 module.exports = router;
