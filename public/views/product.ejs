@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
 </head>
 
@@ -48,32 +49,33 @@
                 <div class="product-detail">
                     <ul>
                         <li class=" xans-record-">
-                            <span class="tr">상품설명</span>
-                            <span>휴지시리즈 '멍티슈' 장난감 3종을 모두 받아볼 수 있는 선물세트!
-                                개린이 집들이 선물로도 추천해요👍</span>
+                            <div class="tr">상품설명</div>
+                            <div class="content">휴지시리즈 '멍티슈' 장난감 3종을 모두 받아볼 수 있는 선물세트!
+                                개린이 집들이 선물로도 추천해요👍</div>
                         </li>
                         <li class=" xans-record-">
-                            <span class="tr">소비자가</span>
-                            <span><strike>71,000원</strike></span>
+                            <div class="tr">소비자가</div>
+                            <div class="content"><strike>71,000원</strike></div>
                         </li>
                         <li class=" xans-record-">
-                            <span class="tr">판매가</span>
-                            <span class="celling-price">48,900원</span>
+                            <div class="tr">판매가</div>
+                            <div class="celling-price content">48,900원</div>
                         </li>
                         <li class=" xans-record-">
-                            <span class="tr">배송방법</span>
-                            <span>택배</span>
+                            <div class="tr">배송방법</div>
+                            <div class="content">택배</div>
                         </li>
                         <li class=" xans-record-">
-                            <span class="tr">배송비</span>
-                            <span> <input
-                                        id="delivery_cost_prepaid" name="delivery_cost_prepaid" value="P"
-                                        type="hidden"><strong>2,500원</strong> (35,000원 이상 구매 시 무료)</span>
+                            <div class="tr">배송비</div>
+                            <div class="content"> <input id="delivery_cost_prepaid" name="delivery_cost_prepaid"
+                                    value="P" type="hidden"><strong>2,500원</strong> (35,000원 이상 구매 시 무료)</div>
 
                         </li>
                     </ul>
                 </div>
-                <div class="shipping"></div>
+                <div class="shipping"><i class="fas fa-truck-moving"></i>
+                    <p><span>지금</span>주문하시면 <br><strong>8/30(월)에 발송</strong>됩니다</p>
+                </div>
                 <div class="option">
                     <tr>
                         <th scope="row">기본</th>
@@ -94,12 +96,19 @@
 
                     <p class="info ">(최소주문수량 1개 이상<span class=""> / 최대주문수량 100개 이하</span>)</p>
 
-                    <span class="sizeGuide displaynone"><a href="#none" class="size_guide_info" product_no="125">사이즈
-                            가이드</a></span>
+                </div>
+                <div id="totalPrice" class="totalPrice">
+                    <strong>총 상품금액</strong>(수량) : <span class="total"><strong><em>0</em></strong> (0개)</span>
+                </div>
+                <div class="ec-base-button gColumn">
+                
+                        <span class="btn-buy" id="btnBuy">바로 구매하기</span>
+                        <span id="btnBuy">장바구니 담기</span>
+                        <span id="btnBuy">관심상품등록</span>
+                    
                 </div>
             </div>
-
-
+            
         </div>
 
 

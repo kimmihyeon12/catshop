@@ -1,53 +1,144 @@
-.product-wrap{
-    border:1px solid black;
-    .detailArea{
+.product-wrap {
+    
+  display: flex;
+  justify-content: center;
+    .detailArea {
+   
+        width: 61vw;
         display: flex;
-        .product-img{
-            .main-img{
-                img{
-                width: 502px;
-                height: 502px;   
+
+        .product-img {
+            .main-img {
+                img {
+                    width: 502px;
+                    height: 502px;
                 }
-                
+              
             }
-            .sub-img{
-               
-                ul{
+
+            .sub-img {
+margin-top: 20px;
+                ul {
                     display: flex;
-                    img{
+
+                    img {
                         width: 67px;
-                        height: 67px;    
-                        }
+                        height: 67px;
+                        margin-right: 5px;
+                    }
                 }
-                
-                
+
+
             }
 
         }
-        .product-info{
-            .title{
+
+        .product-info {
+            margin-left:40px;
+width: 484px;
+            .title {
+
                 font-size: 24px;
+                padding-bottom: 5px;
+                border-bottom: 1px solid black;
+                margin-bottom: 30px;
             }
-            .product-detail{
-                ul{
-                    li{
+
+            .product-detail {
+
+                ul {
+                    li {
                         font-size: 16px;
-                        span{
-                            color: #999999;
-                        }
-                        .tr{
+                        color: #999999;
+                        display: flex;
+                        align-items: center;
+                        height: 45px;
+
+                        .tr {
                             color: black;
                             font-weight: 600;
-                            width: 200px;
-                            border:1px solid black;
+                            width: 108px;
+
                         }
-                        .celling-price{
+
+                        .content {
+                            display: inline-block;
+                            width: 380px;
+                        }
+
+                        .celling-price {
                             color: black;
                             font-weight: 600;
                             font-size: 20px;
                         }
-                       
+
                     }
+                }
+            }
+
+            .shipping{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid #ddd;
+                background: #f5f5f5;
+                height: 80px;
+               
+                i{
+                    font-size: 25px;
+                    padding: 10px;
+                    color: rgb(129, 147, 119);
+                }
+                span{
+                    color: rgb(129, 147, 119);
+                }
+                strong{
+                    color: rgb(129, 147, 119);
+                    font-weight: 600;
+                }
+                margin-bottom: 10px;
+            }
+            .option{
+                border-top: 1px solid #ddd;
+                border-bottom: 1px solid #ddd;
+                padding-top: 10px;
+                padding-bottom: 15px;
+                font-size: 12px;
+                select{
+                    margin-left:100px;
+                    width: 350px;
+                    border: 1px solid lightgray;
+                }
+            }
+            .guideArea{
+                font-size: 12px;
+                padding:6px;
+                color:grey;
+            }
+            .totalPrice{
+                font-size: 12px;
+                strong{
+                    font-weight: 600;
+                }
+                em{
+                    font-size: 18px;
+                }
+                padding-bottom: 20px;
+                border-bottom: 1px solid lightgrey;
+                margin-bottom: 55px;
+            }
+            .gColumn{
+             
+                font-size: 14px;
+                font-weight: 600;
+                >span{
+                    border: 1px solid lightgray;
+                    padding:12px 34px;
+                    
+                }
+                .btn-buy{
+                    background-color: rgb(129, 147, 119);
+                    color: white;
                 }
             }
         }
