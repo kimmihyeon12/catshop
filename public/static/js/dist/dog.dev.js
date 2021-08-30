@@ -25,7 +25,7 @@ window.onload = function _callee() {
             try {
               for (var _iterator = datas[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                 var data = _step.value;
-                codes += "<li>\n        <img src=".concat(data.img_url, "\n            id=\"eListPrdImage51_2\" alt=\"\uB0E5\uB0E5 \uD380\uCE58 \uD1A0\uC774\uBCFC\">\n        <h1> ").concat(data.product_name, "</h1>\n        <ul class=\"price\">\n            <li class=\"discount\"> ").concat(data.consumer_price, "\uC6D0</li>\n            <li> ").concat(data.selling_price, "\uC6D0</li>\n        </ul>\n    \n        <span class=\"review\">\n            \uB9AC\uBDF0 121\n        </span>\n    </li>");
+                codes += "<li class=\"li-item\" data-pid=\"".concat(data.product_id, "\">\n        <img src=").concat(data.img_url, "\n             alt=\"item\">\n        <h1> ").concat(data.product_name, "</h1>\n        <ul class=\"price\">\n            <li class=\"discount\"> ").concat(data.consumer_price, "\uC6D0</li>\n            <li> ").concat(data.selling_price, "\uC6D0</li>\n        </ul>\n    \n        <span class=\"review\">\n            \uB9AC\uBDF0 121\n        </span>\n    </li>");
               }
             } catch (err) {
               _didIteratorError = true;
@@ -43,7 +43,38 @@ window.onload = function _callee() {
             }
 
             ;
-            description.innerHTML = codes;
+            description.innerHTML = codes; // console.log(codes);
+
+            var selectItems = document.querySelectorAll(".li-item");
+            var _iteratorNormalCompletion2 = true;
+            var _didIteratorError2 = false;
+            var _iteratorError2 = undefined;
+
+            try {
+              var _loop = function _loop() {
+                var selectItem = _step2.value;
+                selectItem.addEventListener("click", function () {
+                  location.href = "/product/".concat(selectItem.dataset.pid);
+                });
+              };
+
+              for (var _iterator2 = selectItems[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                _loop();
+              }
+            } catch (err) {
+              _didIteratorError2 = true;
+              _iteratorError2 = err;
+            } finally {
+              try {
+                if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
+                  _iterator2["return"]();
+                }
+              } finally {
+                if (_didIteratorError2) {
+                  throw _iteratorError2;
+                }
+              }
+            }
           }));
 
         case 2:
@@ -66,58 +97,6 @@ toy.addEventListener("click", function _callee2() {
           console.log("toy click");
           _context2.next = 3;
           return regeneratorRuntime.awrap(fetch("/getsubproducts/".concat(1)).then(function (res) {
-            return res.json();
-          }).then(function (res) {
-            description.innerHTML = "";
-            codes = '';
-            var datas = res.data.products;
-            var _iteratorNormalCompletion2 = true;
-            var _didIteratorError2 = false;
-            var _iteratorError2 = undefined;
-
-            try {
-              for (var _iterator2 = datas[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-                var data = _step2.value;
-                codes += "<li>\n    <img src=".concat(data.img_url, "\n        id=\"eListPrdImage51_2\" alt=\"\uB0E5\uB0E5 \uD380\uCE58 \uD1A0\uC774\uBCFC\">\n    <h1> ").concat(data.product_name, "</h1>\n    <ul class=\"price\">\n        <li class=\"discount\"> ").concat(data.consumer_price, "\uC6D0</li>\n        <li> ").concat(data.selling_price, "\uC6D0</li>\n    </ul>\n\n    <span class=\"review\">\n        \uB9AC\uBDF0 121\n    </span>\n</li>");
-              }
-            } catch (err) {
-              _didIteratorError2 = true;
-              _iteratorError2 = err;
-            } finally {
-              try {
-                if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
-                  _iterator2["return"]();
-                }
-              } finally {
-                if (_didIteratorError2) {
-                  throw _iteratorError2;
-                }
-              }
-            }
-
-            ;
-            description.innerHTML = codes;
-          }));
-
-        case 3:
-          res = _context2.sent;
-
-        case 4:
-        case "end":
-          return _context2.stop();
-      }
-    }
-  });
-});
-life.addEventListener("click", function _callee3() {
-  var res;
-  return regeneratorRuntime.async(function _callee3$(_context3) {
-    while (1) {
-      switch (_context3.prev = _context3.next) {
-        case 0:
-          console.log("toy click");
-          _context3.next = 3;
-          return regeneratorRuntime.awrap(fetch("/getsubproducts/".concat(2)).then(function (res) {
             return res.json();
           }).then(function (res) {
             description.innerHTML = "";
@@ -152,24 +131,24 @@ life.addEventListener("click", function _callee3() {
           }));
 
         case 3:
-          res = _context3.sent;
+          res = _context2.sent;
 
         case 4:
         case "end":
-          return _context3.stop();
+          return _context2.stop();
       }
     }
   });
 });
-snack.addEventListener("click", function _callee4() {
+life.addEventListener("click", function _callee3() {
   var res;
-  return regeneratorRuntime.async(function _callee4$(_context4) {
+  return regeneratorRuntime.async(function _callee3$(_context3) {
     while (1) {
-      switch (_context4.prev = _context4.next) {
+      switch (_context3.prev = _context3.next) {
         case 0:
           console.log("toy click");
-          _context4.next = 3;
-          return regeneratorRuntime.awrap(fetch("/getsubproducts/".concat(3)).then(function (res) {
+          _context3.next = 3;
+          return regeneratorRuntime.awrap(fetch("/getsubproducts/".concat(2)).then(function (res) {
             return res.json();
           }).then(function (res) {
             description.innerHTML = "";
@@ -195,6 +174,58 @@ snack.addEventListener("click", function _callee4() {
               } finally {
                 if (_didIteratorError4) {
                   throw _iteratorError4;
+                }
+              }
+            }
+
+            ;
+            description.innerHTML = codes;
+          }));
+
+        case 3:
+          res = _context3.sent;
+
+        case 4:
+        case "end":
+          return _context3.stop();
+      }
+    }
+  });
+});
+snack.addEventListener("click", function _callee4() {
+  var res;
+  return regeneratorRuntime.async(function _callee4$(_context4) {
+    while (1) {
+      switch (_context4.prev = _context4.next) {
+        case 0:
+          console.log("toy click");
+          _context4.next = 3;
+          return regeneratorRuntime.awrap(fetch("/getsubproducts/".concat(3)).then(function (res) {
+            return res.json();
+          }).then(function (res) {
+            description.innerHTML = "";
+            codes = '';
+            var datas = res.data.products;
+            var _iteratorNormalCompletion5 = true;
+            var _didIteratorError5 = false;
+            var _iteratorError5 = undefined;
+
+            try {
+              for (var _iterator5 = datas[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+                var data = _step5.value;
+                codes += "<li>\n    <img src=".concat(data.img_url, "\n        id=\"eListPrdImage51_2\" alt=\"\uB0E5\uB0E5 \uD380\uCE58 \uD1A0\uC774\uBCFC\">\n    <h1> ").concat(data.product_name, "</h1>\n    <ul class=\"price\">\n        <li class=\"discount\"> ").concat(data.consumer_price, "\uC6D0</li>\n        <li> ").concat(data.selling_price, "\uC6D0</li>\n    </ul>\n\n    <span class=\"review\">\n        \uB9AC\uBDF0 121\n    </span>\n</li>");
+              }
+            } catch (err) {
+              _didIteratorError5 = true;
+              _iteratorError5 = err;
+            } finally {
+              try {
+                if (!_iteratorNormalCompletion5 && _iterator5["return"] != null) {
+                  _iterator5["return"]();
+                }
+              } finally {
+                if (_didIteratorError5) {
+                  throw _iteratorError5;
                 }
               }
             }

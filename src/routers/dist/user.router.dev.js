@@ -4,20 +4,18 @@ var express = require("express");
 
 var router = express.Router();
 
-var userContoller = require("../controller/user.controller"); //login
-
-
+var userContoller = require("../controller/user.controller");
+//login
 router.get("/login", function (req, res) {
-  res.render("login");
+    res.render("login");
 });
-router.post("/login", userContoller.login); //register
+router.post("/login", function (req, res) {
+    console.log(req.body);
+});
 
+//register
 router.get("/registerform", function (req, res) {
-  res.render("registerform");
+    res.render("registerform");
 });
-router.post("/registerform", userContoller.register); //check
-
-router.get("/checkId/:id", userContoller.checkId);
-router.get("/checkphone/:phone", userContoller.checkPhone);
-router.get("/checkemail/:email", userContoller.checkEmail);
+router.post("/registerform", userContoller.register);
 module.exports = router;

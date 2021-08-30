@@ -12,4 +12,7 @@ router.get("/getproducts/:catagory",productController.getproducts);
 //4 고양이용품-장난감 5 고양이용품-라이프용품 6 고양이용품-간식
 router.get("/getsubproducts/:subcatagory",productController.getsubproducts);
 
+//상품 상세보기
+router.get("/getproduct/:product_id",productController.getproduct)
+
 module.exports = router;
