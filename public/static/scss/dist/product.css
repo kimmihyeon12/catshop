@@ -3,6 +3,8 @@
   justify-content: center;
 }
 .product-wrap .detailArea {
+  padding-top: 80px;
+  padding-bottom: 200px;
   width: 61vw;
   display: flex;
 }

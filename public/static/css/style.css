@@ -613,6 +613,8 @@ body {
     display: flex;
     justify-content: center; }
     body .product-wrap .detailArea {
+      padding-top: 80px;
+      padding-bottom: 200px;
       width: 61vw;
       display: flex; }
       body .product-wrap .detailArea .product-img .main-img img {
