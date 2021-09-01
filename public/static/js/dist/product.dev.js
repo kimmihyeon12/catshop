@@ -6,7 +6,7 @@ var totalPrice = 0;
 var totalCount = 0;
 var detailArea = document.querySelector(".detailArea");
 window.addEventListener("DOMContentLoaded", function _callee() {
-  var originPath, product_id, res, productName, productExplanation, productConsumerPrice, productSellingPrice, shppingMethod, shppingPrice, productImgs, detailName, addPrice, i, _i, _i2, selectOption, items, price, numArray, numArrayCounter, select;
+  var originPath, product_id, res, productName, productExplanation, productConsumerPrice, productSellingPrice, shppingMethod, shppingPrice, productImgs, detailName, addPrice, i, _i, _i2, selectOption, items, price, numArray, numArrayCounter, selectContainer, select;
 
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
@@ -61,20 +61,36 @@ window.addEventListener("DOMContentLoaded", function _callee() {
 
           numArray = [];
           numArrayCounter = -1;
+          selectContainer = ["*"];
           select = document.querySelector('.option-price');
           select.addEventListener('change', function () {
+            for (var _i3 = 0; _i3 < selectContainer.length; _i3++) {
+              if (select.value == selectContainer[_i3]) {
+                alert("이미 같은 상품이 존재합니다.");
+                return;
+              }
+            }
+
+            selectContainer.push(select.value);
             datasetPrice = Number(selectOption.options[selectOption.selectedIndex].dataset.price);
             totalPrice += productSellingPrice;
             totalPrice += datasetPrice;
             price.innerText = totalPrice;
             numArray.push(1);
             numArrayCounter++;
-            console.log(select.value);
             items.innerHTML += "\n        <div class=\"item-container\">\n        <div  style=\"font-size:12px; display:flex; align-items:center; border-top:1px solid lightgrey; padding-bottom:10px\">\n            <div class=\"q-price\" data-datasetprice=".concat(datasetPrice, " style=\"width:300px\"> \n                <p class=\"info\" style=\"font-weight:600; padding:8px 0px\">").concat(productName, "</p>  \n                <p class=\"info\">- ").concat(selectOption.options[selectOption.selectedIndex].dataset.detailname, "(+").concat(datasetPrice, "\uC6D0)</p>\n            </div>\n            <div style=\"display:flex; width:110px; align-items:center;\">\n                <input type=\"text\" style=\"width:30px;\" class=\"option_box1_quantity\" value=\"1\" name=\"quantity_opt[]\" product-no=\"106\">\n                <div class=\"btn-wrap\" style=\" display:flex; flex-direction:column;\">\n                        <img class=\"btn-up\" style=\"width:20px\" src=\"//img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif\" id=\"option_box1_up\" class=\"option_box_up\" style=\"display:inline-block;\" alt=\"\uC218\uB7C9\uC99D\uAC00\">\n                        <img class=\"btn-down\" style=\"width:20px\" src=\"//img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif\" id=\"option_box1_down\" class=\"option_box_down\" alt=\"\uC218\uB7C9\uAC10\uC18C\">\n                </div>\n                <img class=\"btn-cancel\" style=\"width:10px; height:10px; margin-left:10px;\" src=\"//img.echosting.cafe24.com/design/skin/default/product/btn_price_delete.gif\" alt=\"\uC0AD\uC81C\" id=\"option_box1_del\" class=\"option_box_del\">\n            </div>\n            <div style=\"\">\n                <p class=\"selling-price\" style=\"font-weight:600\" >").concat(productSellingPrice + datasetPrice, "\uC6D0</p>\n            </div>\n        </div>\n        </div>"); //items.style.borderBottom = `1px solid grey`;
             //items.style.margin = `10px`;
 
             select.value = "*";
-            console.log(items);
+
+            if (totalPrice > 35000) {
+              price.innerText = totalPrice - 2500;
+              document.querySelector(".s-price").innerText = 0;
+            } else {
+              price.innerText = totalPrice;
+              document.querySelector(".s-price").innerText = 2500;
+            }
+
             var quantitybox = document.querySelectorAll(".option_box1_quantity");
             var sellingPrice = document.querySelectorAll(".selling-price");
             var btnUps = document.querySelectorAll(" .btn-up");
@@ -83,24 +99,24 @@ window.addEventListener("DOMContentLoaded", function _callee() {
             var btnCancel = document.querySelectorAll(".btn-cancel");
             var itemContainer = document.querySelectorAll(".item-container");
 
-            var _loop = function _loop(_i3) {
-              if (quantitybox[_i3].value === 1) {
-                quantitybox[_i3].value = numArray[_i3];
+            var _loop = function _loop(_i4) {
+              if (quantitybox[_i4].value === 1) {
+                quantitybox[_i4].value = numArray[_i4];
               }
 
-              btnCancel[_i3].addEventListener("click", function () {
-                items.removeChild(itemContainer[_i3]);
-                totalPrice -= (productSellingPrice + Number(qPrice[_i3].dataset.datasetprice)) * quantitybox[_i3].value;
-                price.innerText = price.innerText - (productSellingPrice + Number(qPrice[_i3].dataset.datasetprice)) * quantitybox[_i3].value;
-                quantitybox[_i3].value = 1;
-                numArray[_i3] = 1;
+              btnCancel[_i4].addEventListener("click", function () {
+                items.removeChild(itemContainer[_i4]);
+                totalPrice -= (productSellingPrice + Number(qPrice[_i4].dataset.datasetprice)) * quantitybox[_i4].value;
+                price.innerText = price.innerText - (productSellingPrice + Number(qPrice[_i4].dataset.datasetprice)) * quantitybox[_i4].value;
+                quantitybox[_i4].value = 1;
+                numArray[_i4] = 1;
               });
 
-              btnUps[_i3].addEventListener("click", function () {
-                quantitybox[_i3].value = ++numArray[_i3];
-                sellingPrice[_i3].innerText = (productSellingPrice + Number(qPrice[_i3].dataset.datasetprice)) * quantitybox[_i3].value + "원"; //최종가격
+              btnUps[_i4].addEventListener("click", function () {
+                quantitybox[_i4].value = ++numArray[_i4];
+                sellingPrice[_i4].innerText = (productSellingPrice + Number(qPrice[_i4].dataset.datasetprice)) * quantitybox[_i4].value + "원"; //최종가격
 
-                totalPrice += productSellingPrice + Number(qPrice[_i3].dataset.datasetprice);
+                totalPrice += productSellingPrice + Number(qPrice[_i4].dataset.datasetprice);
 
                 if (totalPrice > 35000) {
                   price.innerText = totalPrice - 2500;
@@ -111,12 +127,12 @@ window.addEventListener("DOMContentLoaded", function _callee() {
                 }
               });
 
-              btnDowns[_i3].addEventListener("click", function () {
-                if (quantitybox[_i3].value > 1) {
-                  quantitybox[_i3].value--;
-                  sellingPrice[_i3].innerText = (productSellingPrice + Number(qPrice[_i3].dataset.datasetprice)) * quantitybox[_i3].value + "원"; //최종가격
+              btnDowns[_i4].addEventListener("click", function () {
+                if (quantitybox[_i4].value > 1) {
+                  quantitybox[_i4].value--;
+                  sellingPrice[_i4].innerText = (productSellingPrice + Number(qPrice[_i4].dataset.datasetprice)) * quantitybox[_i4].value + "원"; //최종가격
 
-                  totalPrice -= productSellingPrice + Number(qPrice[_i3].dataset.datasetprice);
+                  totalPrice -= productSellingPrice + Number(qPrice[_i4].dataset.datasetprice);
 
                   if (totalPrice > 35000) {
                     price.innerText = totalPrice - 2500;
@@ -129,12 +145,12 @@ window.addEventListener("DOMContentLoaded", function _callee() {
               });
             };
 
-            for (var _i3 = 0; _i3 < itemContainer.length; _i3++) {
-              _loop(_i3);
+            for (var _i4 = 0; _i4 < itemContainer.length; _i4++) {
+              _loop(_i4);
             }
           });
 
-        case 31:
+        case 32:
         case "end":
           return _context.stop();
       }

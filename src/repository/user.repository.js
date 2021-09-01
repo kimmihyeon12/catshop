@@ -15,7 +15,7 @@ connection.connect(() => {
 }); // DB 접속
 
 exports.saveAll = (id, passwd, name, phone, email) => {
-    const query = `insert into users values(null,'${id}','${passwd}','${name}','${phone}','${email}','2021-08-23','2021-08-23');`;
+    const query = `insert into users values(null,'${id}','${passwd}','${name}','${phone}','${email}',now(),now(),1);`;
     return new Promise(function (resolve, reject) {
             connection.query(query, null, function (err, results, fields) {
                 if (err) reject(err);
@@ -65,7 +65,7 @@ exports.findId = (id) => {
         .catch((err) => {
             return {
                 success: false,
-                message: "error"
+                message: "database error"
             };
         });
 }

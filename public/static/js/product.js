@@ -129,9 +129,17 @@ window.addEventListener("DOMContentLoaded", async () => {
     // 인풋 값 상태
     const numArray = [];
     let numArrayCounter = -1;
+    let selectContainer = ["*"];
 
     const select = document.querySelector('.option-price');
     select.addEventListener('change', function () {
+        for(let i=0; i<selectContainer.length; i++){
+            if(select.value == selectContainer[i]){
+                alert("이미 같은 상품이 존재합니다.");
+                return;
+            }
+        }
+        selectContainer.push(select.value);
         datasetPrice = Number(selectOption.options[selectOption.selectedIndex].dataset.price);
         totalPrice += productSellingPrice;
         totalPrice += datasetPrice;
@@ -139,7 +147,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
         numArray.push(1);
         numArrayCounter++;
-        console.log(select.value);
+        
     
 
         items.innerHTML += `
@@ -165,9 +173,16 @@ window.addEventListener("DOMContentLoaded", async () => {
         //items.style.borderBottom = `1px solid grey`;
         //items.style.margin = `10px`;
         select.value = "*";
+       
 
-
-        console.log(items);
+        if (totalPrice > 35000) {
+            price.innerText = totalPrice - (2500);
+            document.querySelector(".s-price").innerText = 0;
+        } else {
+            price.innerText = totalPrice;
+            document.querySelector(".s-price").innerText = 2500;
+        }
+      
 
         const quantitybox = document.querySelectorAll(".option_box1_quantity");
         const sellingPrice = document.querySelectorAll(".selling-price");

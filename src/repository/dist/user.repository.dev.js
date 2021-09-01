@@ -19,7 +19,7 @@ connection.connect(function () {
 }); // DB 접속
 
 exports.saveAll = function (id, passwd, name, phone, email) {
-  var query = "insert into users values(null,'".concat(id, "','").concat(passwd, "','").concat(name, "','").concat(phone, "','").concat(email, "','2021-08-23','2021-08-23');");
+  var query = "insert into users values(null,'".concat(id, "','").concat(passwd, "','").concat(name, "','").concat(phone, "','").concat(email, "',now(),now(),1);");
   return new Promise(function (resolve, reject) {
     connection.query(query, null, function (err, results, fields) {
       if (err) reject(err);
@@ -65,7 +65,7 @@ exports.findId = function (id) {
   })["catch"](function (err) {
     return {
       success: false,
-      message: "error"
+      message: "database error"
     };
   });
 };
