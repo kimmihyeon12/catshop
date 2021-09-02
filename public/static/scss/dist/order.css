@@ -1,0 +1,242 @@
+@charset "UTF-8";
+.order-wrap {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.order-wrap .title-area {
+  margin-top: 100px;
+  width: 60vw;
+  font-size: 30px;
+  font-weight: 500;
+}
+.order-wrap .order-form {
+  width: 60vw;
+  margin-top: 10px;
+}
+.order-wrap .order-form .benefit-info {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 1014px;
+  height: 91px;
+  border: 5px solid #e8e8e8;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+.order-wrap .order-form .benefit-info > .title {
+  font-weight: 600;
+  width: 100px;
+  height: 81px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #e8e8e8;
+}
+.order-wrap .order-form .benefit-info .member {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  width: 893px;
+  border-bottom: 1px solid #e8e8e8;
+}
+.order-wrap .order-form .benefit-info .member strong {
+  font-weight: 600;
+}
+.order-wrap .order-form .benefit-info .mileage {
+  margin-left: 10px;
+}
+.order-wrap .order-form .benefit-info .mileage strong {
+  font-weight: 600;
+  color: #008bcc;
+}
+.order-wrap .order-form .cotrol-info {
+  width: 1016px;
+  color: #f76560;
+  padding: 10px 0 8px 10px;
+  border-top: 1px solid #e8e5e4;
+  font-size: 11px;
+  line-height: 1.5;
+  background: #fff8f5;
+}
+.order-wrap .order-form .cotrol-info p {
+  background: url(//img.echosting.cafe24.com/skin/base/common/ico_info.gif) no-repeat;
+  margin-left: 10px;
+  padding: 0 0 0 23px;
+}
+.order-wrap .order-form .orderlist-area {
+  width: 1024px;
+  font-size: 12px;
+}
+.order-wrap .order-form .orderlist-area h1 {
+  margin-top: 40px;
+  font-weight: 600;
+  padding: 10px;
+}
+.order-wrap .order-form .orderlist-area h3 {
+  height: 39px;
+  font-weight: 600;
+  border-bottom: 1px solid #e8e8e8;
+  display: flex;
+  align-items: center;
+  background: #f6f6f6;
+}
+.order-wrap .order-form .orderlist-area .orderlist-table-title {
+  background: #f6f6f6;
+  width: 1024px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e8e8e8;
+}
+.order-wrap .order-form .orderlist-area .orderlist-table-title > li {
+  height: 40px;
+  border-right: 1px solid #e8e8e8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.order-wrap .order-form .orderlist-area .orderlist-table-body {
+  height: 91px;
+  display: flex;
+  border-bottom: 1px solid #e8e8e8;
+}
+.order-wrap .order-form .orderlist-area .orderlist-table-body .m-img {
+  width: 75px;
+  height: 75px;
+}
+.order-wrap .order-form .orderlist-area .orderlist-table-body .point {
+  width: 12px;
+  height: 12px;
+  display: flex;
+}
+.order-wrap .order-form .orderlist-area .orderlist-table-body > li {
+  height: 91px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid #e8e8e8;
+}
+.order-wrap .order-form .orderlist-area .orderlist-table-body .shpping {
+  border-bottom: 1px solid white;
+  content: "무료";
+}
+.order-wrap .order-form .orderlist-area .orderlist-table-footer {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background: #f6f6f6;
+}
+.order-wrap .order-form .orderlist-area .orderlist-table-footer .gLeft {
+  margin-left: 30px;
+  margin-right: 550px;
+}
+.order-wrap .order-form .orderlist-area .orderlist-table-footer strong {
+  font-weight: 600;
+}
+.order-wrap .order-form .orderlist-area .orderlist-table-footer .gIndent10 {
+  color: #008bcc;
+}
+.order-wrap .order-form .orderlist-area .orderlist-table-footer .gIndent10 .txt18 {
+  font-size: 18px;
+}
+.order-wrap .order-area li {
+  display: flex;
+}
+.order-wrap .order-area li .order-area-title {
+  background-color: #fbfafa;
+  border-right: 1px solid #d5d5d5;
+  border-left: 1px solid #d5d5d5;
+  width: 139px;
+  display: flex;
+  align-items: center;
+  padding: 11px 0px;
+  padding-left: 10px;
+  border-bottom: 1px solid #d5d5d5;
+}
+.order-wrap .order-area li .order-area-title > img {
+  margin-left: 3px;
+}
+.order-wrap .order-area li .order-area-content {
+  color: #707070;
+  border-bottom: 1px solid #d5d5d5;
+  border-right: 1px solid #d5d5d5;
+  padding: 8px 10px;
+  width: 855px;
+}
+.order-wrap .order-area li .order-area-content select {
+  padding: 2px;
+  border: 1px solid #d5d5d5;
+}
+.order-wrap .order-area li .order-area-content input {
+  padding: 2px;
+  border: 1px solid #d5d5d5;
+}
+.order-wrap .order-area li .order-area-content textarea {
+  border: 1px solid #d5d5d5;
+}
+.order-wrap .order-area li .order-area-address input {
+  margin-top: 5px;
+}
+.order-wrap .total-area {
+  border: 1px solid black;
+  width: 1024px;
+}
+.order-wrap .total-area .total-area-title {
+  background: #fbfafa;
+  display: flex;
+}
+.order-wrap .total-area .total-area-title p {
+  border-left: 1px solid #d5d5d5;
+  border-bottom: 1px solid #d5d5d5;
+  font-weight: 600;
+  padding: 20px 0px;
+  text-align: center;
+  width: 33.5%;
+}
+.order-wrap .total-area .total-area-content {
+  display: flex;
+}
+.order-wrap .total-area .total-area-content p {
+  border-left: 1px solid #d5d5d5;
+  font-weight: 600;
+  padding: 20px 0px;
+  text-align: center;
+  width: 33.5%;
+  font-size: 16px;
+}
+.order-wrap .total-area .total-area-content p span {
+  font-size: 23px;
+}
+.order-wrap .total-area .total-area-content .total {
+  color: #008bcc;
+}
+.order-wrap .payment-area table {
+  border: 1px solid #d5d5d5;
+}
+.order-wrap .payment-area th,
+.order-wrap .payment-area td {
+  border: 1px solid #d5d5d5;
+}
+.order-wrap .payment-area th,
+.order-wrap .payment-area td {
+  padding: 13px;
+}
+.order-wrap .payment-area .sum {
+  background: #fbfafa;
+}
+.order-wrap .payment-area strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+.order-wrap .payment-area button {
+  padding: 3px;
+  border: 0;
+  background-color: #819377;
+  color: white;
+}
+.order-wrap .payment-method-wrap {
+  border: 1px solid black;
+  display: flex;
+}

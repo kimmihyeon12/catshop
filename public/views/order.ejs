@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <!-- <script src=".js" defer></script> -->
+</head>
+
+<body>
+    <div class="top-banner">
+
+    </div>
+    <div class="header">
+        <%-include('./shared/header')%>
+    </div>
+    <div class="order-wrap">
+        <div class="title-area">주문서작성</div>
+        <div class="order-form">
+            <img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/img_order_step2.gif" alt="02 주문서작성">
+            <div class="benefit-info">
+                <div class="title">
+                    <h3>혜택정보</h3>
+                </div>
+                <div class="description">
+                    <div class="member ">
+                        <p><strong>미현</strong> 님은, [냥멍입덕] 회원이십니다.</p>
+                        <span class="">50,000원</span> 이상 <span class="displaynone"></span> 구매시 <span>1%</span>을
+                        추가적립 받으실 수 있습니다.
+                    </div>
+                    <div class="mileage">
+                        <a href="/myshop/mileage/historyList.html">가용적립금 : <strong>2,500원</strong></a>
+                        <a href="/myshop/coupon/coupon.html">쿠폰 : <strong>1개</strong></a>
+                    </div>
+                </div>
+            </div>
+            <div class="cotrol-info">
+                <p class="txtWarn txt11">상품의 옵션 및 수량 변경은 상품상세 또는 장바구니에서 가능합니다.</p>
+            </div>
+            <div class="orderlist-area">
+                <div class="orderlist-title">
+                    <h3>국내배송상품 주문내역</h3>
+
+                </div>
+
+                <ul class="orderlist-table-title">
+                    <li><input type="checkbox"></li>
+                    <li style="width:92px;">이미지</li>
+                    <li style="width:352px;">상품정보</li>
+                    <li style="width:98px;">판매가</li>
+                    <li style="width:75px;">수량</li>
+                    <li style="width:98px;">적립금</li>
+                    <li style="width:98px;">배송구분</li>
+                    <li style="width:85px;">배송비</li>
+                    <li style="width:98px;">합계</li>
+                </ul>
+
+
+                <ul class="orderlist-table-body">
+                    <li><input type="checkbox"></li>
+                    <li style="width:92px;"><img class="m-img"
+                            src="https://npmp.co.kr/web/product/tiny/202104/0e6dce5f7e5ec05eaf790242a58e838c.jpg"
+                            alt=""></li>
+                    <li style="width:352px;"><strong class="name"><a href="/product/멍티슈-두루마리/124/category/42/"
+                                class="ec-product-name">멍티슈 두루마리</a>
+                            <div class="option ">[옵션: 🧻 멍티슈 두루마리]</div>
+                        </strong></li>
+                    <li style="width:98px;"><strong>18,900원</strong></li>
+                    <li style="width:75px;">2</li>
+                    <li style="width:98px;"><img class="point"
+                            src="//img.echosting.cafe24.com/design/skin/admin/ko_KR/ico_product_point.gif"> 189원</li>
+                    <li style="width:98px;">기본배송</li>
+                    <li class="shpping" style="width:85px;"></li>
+                    <li style="width:98px;">18,900원</li>
+                </ul>
+                <ul class="orderlist-table-body">
+                    <li><input type="checkbox"></li>
+                    <li style="width:92px;"><img class="m-img"
+                            src="https://npmp.co.kr/web/product/tiny/202104/0e6dce5f7e5ec05eaf790242a58e838c.jpg"
+                            alt=""></li>
+                    <li style="width:352px;"><strong class="name"><a href="/product/멍티슈-두루마리/124/category/42/"
+                                class="ec-product-name">멍티슈 두루마리</a>
+                            <div class="option ">[옵션: 🧻 멍티슈 두루마리]</div>
+                        </strong></li>
+                    <li style="width:98px;"><strong>18,900원</strong></li>
+                    <li style="width:75px;">2</li>
+                    <li style="width:98px;"><img class="point"
+                            src="//img.echosting.cafe24.com/design/skin/admin/ko_KR/ico_product_point.gif"> 189원</li>
+                    <li style="width:98px;">기본배송</li>
+                    <li class="shpping" style="width:85px;"></li>
+                    <li style="width:98px;">18,900원</li>
+                </ul>
+                <ul class="orderlist-table-footer">
+                    <span class="gLeft">[기본배송]</span> 상품구매금액 <strong>97,800<span class="">
+                            (+60,000)</span></strong> + 배송비 <span id="domestic_ship_fee">0 (무료)</span> = 합계:
+                    <strong class="txtEm gIndent10"><span id="domestic_ship_fee_sum" class="txt18"
+                            style="margin-left:8px;"> 97,800</span>원</strong> <span class="displaynone"></span>
+                </ul>
+
+                <div class="cotrol-info">
+                    <p class="txtWarn txt11">상품의 옵션 및 수량 변경은 상품상세 또는 장바구니에서 가능합니다.</p>
+                </div>
+
+
+                <h1>배송 정보</h1>
+                <ul class="order-area">
+
+                    <li style="border-top:1px solid #d5d5d5">
+                        <p class="order-area-title">배송지 선택</p>
+                        <div class="order-area-content"><input value="T" type="radio">회원종보와 동일<input value="F"
+                                type="radio">새로운 배송지</div>
+                    </li>
+                    <li>
+                        <p class="order-area-title">받으시는분<img
+                                src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_required.gif" alt="필수"></p>
+
+                        <div class="order-area-content"><input type="text" size="15"></div>
+                    </li>
+                    <li>
+                        <p class="order-area-title">주소<img
+                                src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_required.gif" alt="필수"></p>
+                        <div class="order-area-content order-area-address">
+                            <div><input id="rzipcode1" name="rzipcode1" fw-filter="isFill" fw-label="수취자 우편번호1"
+                                    fw-msg="" class="inputTypeText" placeholder="" size="6" maxlength="6" readonly="1"
+                                    value="" type="text"> <a href="#none" id="btn_search_rzipcode"
+                                    class="btnNormal">우편번호</a></div>
+                            <div><input id="raddr1" name="raddr1" fw-filter="isFill" fw-label="수취자 주소1" fw-msg=""
+                                    class="inputTypeText" placeholder="" size="40" readonly="1" value="" type="text">
+                                <span class="grid">기본주소</span></div>
+                            <div><input id="raddr1" name="raddr1" fw-filter="isFill" fw-label="수취자 주소1" fw-msg=""
+                                    class="inputTypeText" placeholder="" size="40" readonly="1" value="" type="text">
+                                <span class="grid">나머지주소(선택입력가능)</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="order-area-title">휴대전화<img
+                                src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_required.gif" alt="필수"></p>
+                        <div class="order-area-content"><select id="rphone2_1" name="rphone2_[]"
+                                fw-filter="isNumber&amp;isFill" fw-label="수취자 핸드폰번호" fw-alone="N" fw-msg="">
+                                <option value="010">010</option>
+                                <option value="011">011</option>
+                                <option value="016">016</option>
+                                <option value="017">017</option>
+                                <option value="018">018</option>
+                                <option value="019">019</option>
+                            </select>-<input id="rphone2_2" name="rphone2_[]" maxlength="4"
+                                fw-filter="isNumber&amp;isFill" fw-label="수취자 핸드폰번호" fw-alone="N" fw-msg="" size="4"
+                                value="" type="text">-<input id="rphone2_3" name="rphone2_[]" maxlength="4"
+                                fw-filter="isNumber&amp;isFill" fw-label="수취자 핸드폰번호" fw-alone="N" fw-msg="" size="4"
+                                value="" type="text"></div>
+                    </li>
+                    <li>
+                        <p class="order-area-title">이메일<img
+                                src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_required.gif" alt="필수"></p>
+                        <div class="order-area-content">
+                            <input id="oemail1" name="oemail1" fw-filter="isFill" fw-label="주문자 이메일" fw-alone="N"
+                                fw-msg="" class="mailId" value="" type="text">@<input id="oemail2" name="oemail2"
+                                fw-filter="isFill" fw-label="주문자 이메일" fw-alone="N" fw-msg="" class="mailAddress"
+                                readonly="readonly" value="" type="text"><select id="oemail3" fw-filter="isFill"
+                                fw-label="주문자 이메일" fw-alone="N" fw-msg="">
+                                <option value="" selected="selected">- 이메일 선택 -</option>
+                                <option value="naver.com">naver.com</option>
+                                <option value="daum.net">daum.net</option>
+                                <option value="nate.com">nate.com</option>
+                                <option value="hotmail.com">hotmail.com</option>
+                                <option value="yahoo.com">yahoo.com</option>
+                                <option value="empas.com">empas.com</option>
+                                <option value="korea.com">korea.com</option>
+                                <option value="dreamwiz.com">dreamwiz.com</option>
+                                <option value="gmail.com">gmail.com</option>
+                                <option value="etc">직접입력</option>
+                            </select>
+                            <p class="gBlank5">이메일을 통해 주문처리과정을 보내드립니다.<br>이메일 주소란에는 반드시 수신가능한 이메일주소를 입력해 주세요.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="order-area-title">배송메시지</p>
+                        <div class="order-area-content">
+                            <textarea id="omessage" name="omessage" fw-filter="" fw-label="배송 메세지" fw-msg=""
+                                maxlength="255" cols="70"></textarea>
+                        </div>
+
+                    </li>
+
+
+                </ul>
+
+
+                <h1>결제 예정 금액</h1>
+                <div class="total-area">
+
+                    <div class="total-area-title">
+                        <p>총 주문 금액</p>
+                        <p>총 할인 + 부가결제금액</p>
+                        <p>총 결제예정 금액</p>
+
+                    </div>
+                    <div class="total-area-content">
+                        <p><span>37,800</span>원</p>
+                        <p>-<span>0</span>원</p>
+                        <p class="total">=<span>37,800</span>원</p>
+
+                    </div>
+                </div>
+                <div class="payment-area">
+                    <table border="1" summary="">
+
+                        <colgroup>
+                            <col style="width:140px">
+                            <col style="width:886px">
+                        </colgroup>
+                        <tbody>
+                            <tr class="sum txt14">
+                                <th scope="row"><strong>총 할인금액</strong></th>
+                                <td><strong id="total_addsale_price_view">0</strong>원</td>
+                            </tr>
+                            <!-- 추가부분 시작 -->
+                            <tr class=" mDiscountcodeSelect">
+                                <th scope="row">할인코드 적용</th>
+                                <td>
+                                    <input type="text" name="ec_discountcode" class="inputTypeText">
+                                    &nbsp;<button>적용</button>
+                                </td>
+                            </tr>
+                            <!-- 추가부분 끝 -->
+                            <tr class=" mCouponSelect">
+                                <th scope="row">쿠폰할인</th>
+                                <td><button>쿠폰적용</button></td>
+                            </tr>
+
+                            <tr class="sum txt14">
+                                <th scope="row"><strong>총 부가결제금액</strong></th>
+                                <td><strong id="total_addpay_price_view">2,500</strong>원</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">적립금</th>
+                                <td>
+                                    <p> <input id="input_mile" name="input_mile" fw-filter="" fw-label="적립금" fw-msg=""
+                                            class="inputTypeText" placeholder="" size="10" value="" type="text"> 원 (총
+                                        사용가능 적립금 : <strong class="txtWarn">2,500</strong>원)</p>
+                                    <ul class="info">
+                                        <li>적립금은 최소 2,000 이상일 때 결제가 가능합니다.</li>
+                                        <li id="mileage_max_unlimit" class="">최대 사용금액은 제한이 없습니다.</li>
+                                        <li id="mileage_max_limit" class="">1회 구매시 적립금 최대 사용금액은 2,500원입니다.</li>
+                                        <li>적립금으로만 결제할 경우, 결제금액이 0으로 보여지는 것은 정상이며 [결제하기] 버튼을 누르면 주문이 완료됩니다.</li>
+
+                                    </ul>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <h1>결제수단</h1>
+                <div class="payment-method-wrap">
+                    <div class="payment-method-area">
+                        <div class="payment-method">
+                            <input id="addr_paymethod0"  value="kakaopay" type="radio" checked="checked">
+                            <label for="addr_paymethod1">카카오페이(간편결제) <a href="http://www.payco.com/payco/guide.nhn" target="_blank"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif" alt="info"></a></label>
+                            <input id="addr_paymethod0"  value="payco" type="radio">
+                            <label for="addr_paymethod1">페이코(간편결제) <a href="http://www.payco.com/payco/guide.nhn" target="_blank"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif" alt="info"></a></label>
+                            <input id="addr_paymethod0"  value="card" type="radio">
+                            <label for="addr_paymethod1">카드결제 <a href="http://www.payco.com/payco/guide.nhn" target="_blank"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif" alt="info"></a></label>
+                            <input id="addr_paymethod0"  value="phone" type="radio">
+                            <label for="addr_paymethod1">휴대폰결제 <a href="http://www.payco.com/payco/guide.nhn" target="_blank"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif" alt="info"></a></label>
+                            
+                            <input id="addr_paymethod0"  value="askro" type="radio">
+                            <label for="addr_paymethod1">에스크로 <a href="http://www.payco.com/payco/guide.nhn" target="_blank"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif" alt="info"></a></label>
+                            <input id="addr_paymethod0"  value="adrr" type="radio">
+                            <label for="addr_paymethod1">무통장입금 <a href="http://www.payco.com/payco/guide.nhn" target="_blank"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif" alt="info"></a></label>
+                            
+                        </div>
+                        <div class="method">
+                            <div id="kakaopay_info" class="payHelp" style="">
+                                <p class="ec-base-help">휴대폰에 설치된 카카오톡 앱에서 비밀번호 입력만으로 빠르고 안전하게 결제가 가능한 서비스 입니다.</p>
+                                <p class="ec-base-help">안드로이드의 경우 구글 플레이, 아이폰의 경우 앱 스토어에서 카카오톡 앱을 설치 한 후,<br>
+                                최초 1회 카드 및 계좌 정보를 등록하셔야 사용 가능합니다.</p>
+                                <p class="ec-base-help">인터넷 익스플로러의 경우 8 이상에서만 결제 가능합니다.</p>
+                                <p class="ec-base-help">카카오머니로 결제 시, 현금영수증 발급은 ㈜카카오페이에서 발급가능합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                        <div class="total">
+                            <h4>
+                <strong id="current_pay_name">카카오페이(간편결제) </strong> <span>최종결제 금액</span>
+                </h4>
+                            <p class="price"><span></span><input id="total_price" name="total_price" fw-filter="isFill" fw-label="결제금액" fw-msg="" class="inputTypeText" placeholder="" style="text-align:right;ime-mode:disabled;clear:none;border:0px;float:none;" size="10" readonly="1" value="37800" type="text"><span>원</span></p>
+                            <p class="paymentAgree" id="chk_purchase_agreement" style="display: none;"><input id="chk_purchase_agreement0" name="chk_purchase_agreement" fw-filter="" fw-label="구매진행 동의" fw-msg="" value="T" type="checkbox" style="display: none;"><label for="chk_purchase_agreement0">결제정보를 확인하였으며, 구매진행에 동의합니다.</label></p>
+                            <div class="ec-base-button gColumn"><a href="#none" id="btn_payment" class="btnSubmit sizeL">결제하기</a></div>
+                            <div class="mileage ">
+                                <dl class="ec-base-desc gLarge right">
+                <dt><strong>총 적립예정금액</strong></dt>
+                                    <dd id="mAllMileageSum" class="txtWarn" style="">378원</dd>
+                                </dl>
+                <dl class="ec-base-desc gLarge right">
+                <dt>상품별 적립금</dt>
+                                    <dd id="mProductMileage">378원</dd>
+                                    <dt>회원 적립금</dt>
+                                    <dd id="mMemberMileage">0원</dd>
+                                    <dt>쿠폰 적립금</dt>
+                                    <dd id="mCouponMileage">0원</dd>
+                                </dl>
+                </div>
+                        </div>
+                  
+                </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -152,23 +152,23 @@ window.addEventListener("DOMContentLoaded", async () => {
 
         items.innerHTML += `
         <div class="item-container">
-        <div  style="font-size:12px; display:flex; align-items:center; border-top:1px solid lightgrey; padding-bottom:10px">
-            <div class="q-price" data-datasetprice=${datasetPrice} style="width:300px"> 
-                <p class="info" style="font-weight:600; padding:8px 0px">${productName}</p>  
-                <p class="info">- ${selectOption.options[selectOption.selectedIndex].dataset.detailname}(+${datasetPrice}원)</p>
-            </div>
-            <div style="display:flex; width:110px; align-items:center;">
-                <input type="text" style="width:30px;" class="option_box1_quantity" value="1" name="quantity_opt[]" product-no="106">
-                <div class="btn-wrap" style=" display:flex; flex-direction:column;">
-                        <img class="btn-up" style="width:20px" src="//img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif" id="option_box1_up" class="option_box_up" style="display:inline-block;" alt="수량증가">
-                        <img class="btn-down" style="width:20px" src="//img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif" id="option_box1_down" class="option_box_down" alt="수량감소">
+            <div  style="font-size:12px; display:flex; align-items:center; border-top:1px solid lightgrey; padding-bottom:10px">
+                <div class="q-price" data-datasetprice=${datasetPrice} style="width:300px"> 
+                    <p class="info" style="font-weight:600; padding:8px 0px">${productName}</p>  
+                    <p class="info">- ${selectOption.options[selectOption.selectedIndex].dataset.detailname}(+${datasetPrice}원)</p>
                 </div>
-                <img class="btn-cancel" style="width:10px; height:10px; margin-left:10px;" src="//img.echosting.cafe24.com/design/skin/default/product/btn_price_delete.gif" alt="삭제" id="option_box1_del" class="option_box_del">
+                <div style="display:flex; width:110px; align-items:center;">
+                    <input type="text" style="width:30px;" class="option_box1_quantity" value="1" name="quantity_opt[]" product-no="106">
+                    <div class="btn-wrap" style=" display:flex; flex-direction:column;">
+                            <img class="btn-up" style="width:20px" src="//img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif" id="option_box1_up" class="option_box_up" style="display:inline-block;" alt="수량증가">
+                            <img class="btn-down" style="width:20px" src="//img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif" id="option_box1_down" class="option_box_down" alt="수량감소">
+                    </div>
+                    <img class="btn-cancel" style="width:10px; height:10px; margin-left:10px;" src="//img.echosting.cafe24.com/design/skin/default/product/btn_price_delete.gif" alt="삭제" id="option_box1_del" class="option_box_del">
+                </div>
+                <div style="">
+                    <p class="selling-price" style="font-weight:600" >${productSellingPrice+datasetPrice}원</p>
+                </div>
             </div>
-            <div style="">
-                <p class="selling-price" style="font-weight:600" >${productSellingPrice+datasetPrice}원</p>
-            </div>
-        </div>
         </div>`;
         //items.style.borderBottom = `1px solid grey`;
         //items.style.margin = `10px`;
@@ -205,6 +205,7 @@ window.addEventListener("DOMContentLoaded", async () => {
                 price.innerText = price.innerText - (productSellingPrice + Number(qPrice[i].dataset.datasetprice))* (quantitybox[i].value);
                 quantitybox[i].value=1;
                 numArray[i]=1;
+                selectContainer.pop(select.value);
             })
             btnUps[i].addEventListener("click", () => {
 
