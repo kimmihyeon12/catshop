@@ -7,6 +7,8 @@ const pageRouter = require("./src/routers");
 const userRouter = require("./src/routers/user.router");
 const productRouter = require("./src/routers/product.router");
 const bodyParser = require("body-parser");
+const session = require('express-session');
+
 const PORT = 3000; 
 
 
@@ -23,6 +25,13 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended: true,
 }));
+app.use(session({
+    secret: 'cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}));
+
 app.use(userRouter);
 app.use(pageRouter);
 app.use(productRouter);

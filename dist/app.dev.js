@@ -16,6 +16,8 @@ var productRouter = require("./src/routers/product.router");
 
 var bodyParser = require("body-parser");
 
+var session = require('express-session');
+
 var PORT = 3000; //morgan
 
 var logger = require('morgan');
@@ -30,6 +32,14 @@ app.use(express.json()); //? Use form-urlencoded : req 객체에서 x-www-form-u
 
 app.use(express.urlencoded({
   extended: true
+}));
+app.use(session({
+  secret: 'cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: true
+  }
 }));
 app.use(userRouter);
 app.use(pageRouter);

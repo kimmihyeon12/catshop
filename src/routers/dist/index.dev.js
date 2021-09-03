@@ -2,7 +2,10 @@
 
 var express = require("express");
 
-var router = express.Router(); // page(화면) 보기
+var router = express.Router();
+
+var orderController = require("../controller/order.controller"); // page(화면) 보기
+
 
 router.get("/", function (req, res) {
   res.render("index");
@@ -25,4 +28,5 @@ router.get("/register", function (req, res) {
 router.get("/order", function (req, res) {
   res.render("order");
 });
+router.post("/order", orderController.getorderinfo);
 module.exports = router;

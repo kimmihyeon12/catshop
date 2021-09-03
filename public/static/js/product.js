@@ -20,6 +20,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     const shppingMethod = res.data.product[0].shpping_method;
     const shppingPrice = res.data.product[0].shpping_price;
     const productImgs = res.data.product[0].img_url.split(",");
+    //order로 전송되는 데이터
+    const resRequest = [];
 
 
 
@@ -121,20 +123,52 @@ window.addEventListener("DOMContentLoaded", async () => {
 
 
     detailArea.innerHTML = codes;
+    const btnBuy = document.querySelector(".btn-buy");
     const selectOption = document.querySelector(".option-price");
     const items = document.querySelector("#items");
     const price = document.querySelector("#totalPrice");
+    let quantitybox;
     totalPrice += shppingPrice;
 
     // 인풋 값 상태
     const numArray = [];
     let numArrayCounter = -1;
     let selectContainer = ["*"];
+    const selectvalue = [];
 
     const select = document.querySelector('.option-price');
+    btnBuy.addEventListener('click', async () => {
+            console.log("form");
+            const form = document.createElement("form");
+        for (let i = 0; i < resRequest.length; i++) {
+            resRequest[i].totalPrice = totalPrice;
+            if(quantitybox[i]!=null)
+            resRequest[i].quantity = quantitybox[i].value;
+            const datas = resRequest[i]
+            //order page로 data 보내기
+           
+            form.setAttribute("method","post");
+            form.setAttribute("action","/order");
+            for (let key in datas) {
+                const input = document.createElement("input");
+                input.setAttribute("type","hidden");
+                input.setAttribute("name", key);
+                input.setAttribute("value", datas[key]);
+                form.appendChild(input);
+            
+                 
+            }
+         
+           
+        }
+        document.body.appendChild(form);
+        console.log(form);
+        form.submit();
+
+    })
     select.addEventListener('change', function () {
-        for(let i=0; i<selectContainer.length; i++){
-            if(select.value == selectContainer[i]){
+        for (let i = 0; i < selectContainer.length; i++) {
+            if (select.value == selectContainer[i]) {
                 alert("이미 같은 상품이 존재합니다.");
                 return;
             }
@@ -144,11 +178,15 @@ window.addEventListener("DOMContentLoaded", async () => {
         totalPrice += productSellingPrice;
         totalPrice += datasetPrice;
         price.innerText = totalPrice;
-
+   
+        resRequest.push(res.data.product[select.value]);
+        console.log(resRequest);
+        console.log("res.data.product");
+        console.log(res.data.product);
         numArray.push(1);
         numArrayCounter++;
-        
-    
+
+
 
         items.innerHTML += `
         <div class="item-container">
@@ -173,7 +211,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         //items.style.borderBottom = `1px solid grey`;
         //items.style.margin = `10px`;
         select.value = "*";
-       
+
 
         if (totalPrice > 35000) {
             price.innerText = totalPrice - (2500);
@@ -182,34 +220,35 @@ window.addEventListener("DOMContentLoaded", async () => {
             price.innerText = totalPrice;
             document.querySelector(".s-price").innerText = 2500;
         }
-      
 
-        const quantitybox = document.querySelectorAll(".option_box1_quantity");
+
         const sellingPrice = document.querySelectorAll(".selling-price");
         const btnUps = document.querySelectorAll(" .btn-up");
         const btnDowns = document.querySelectorAll(" .btn-down");
         const qPrice = document.querySelectorAll(".q-price");
         const btnCancel = document.querySelectorAll(".btn-cancel");
-        const itemContainer =document.querySelectorAll(".item-container");
-
-
+        const itemContainer = document.querySelectorAll(".item-container");
+        quantitybox = document.querySelectorAll(".option_box1_quantity");
 
 
         for (let i = 0; i < itemContainer.length; i++) {
-            if (quantitybox[i].value === 1) {
-               quantitybox[i].value = numArray[i];
+            if (selectvalue[i] == null) {
+                selectvalue[i] = 1;
             }
-            btnCancel[i].addEventListener("click",()=>{
+            quantitybox[i].value = selectvalue[i];
+
+            btnCancel[i].addEventListener("click", () => {
                 items.removeChild(itemContainer[i]);
-                totalPrice -= (productSellingPrice + Number(qPrice[i].dataset.datasetprice))* (quantitybox[i].value);
-                price.innerText = price.innerText - (productSellingPrice + Number(qPrice[i].dataset.datasetprice))* (quantitybox[i].value);
-                quantitybox[i].value=1;
-                numArray[i]=1;
+                totalPrice -= (productSellingPrice + Number(qPrice[i].dataset.datasetprice)) * (quantitybox[i].value);
+                price.innerText = price.innerText - (productSellingPrice + Number(qPrice[i].dataset.datasetprice)) * (quantitybox[i].value);
+                quantitybox[i].value = 1;
+                selectvalue[i] = null;
                 selectContainer.pop(select.value);
             })
             btnUps[i].addEventListener("click", () => {
 
-                quantitybox[i].value = ++numArray[i];
+                quantitybox[i].value++;
+                selectvalue[i]++;
                 sellingPrice[i].innerText = (productSellingPrice + Number(qPrice[i].dataset.datasetprice)) * (quantitybox[i].value) + "원";
                 //최종가격
                 totalPrice += productSellingPrice + Number(qPrice[i].dataset.datasetprice);
@@ -225,6 +264,7 @@ window.addEventListener("DOMContentLoaded", async () => {
             btnDowns[i].addEventListener("click", () => {
                 if (quantitybox[i].value > 1) {
                     quantitybox[i].value--;
+                    selectvalue[i]--;
                     sellingPrice[i].innerText = (productSellingPrice + Number(qPrice[i].dataset.datasetprice)) * (quantitybox[i].value) + "원";
                     //최종가격
                     totalPrice -= productSellingPrice + Number(qPrice[i].dataset.datasetprice);

@@ -59,7 +59,27 @@
                     <li style="width:85px;">배송비</li>
                     <li style="width:98px;">합계</li>
                 </ul>
-
+                <%if(product_id.length==1){%>
+                <ul class="orderlist-table-body">
+                    <li><input type="checkbox"></li>
+                    <li style="width:92px;"><img class="m-img"
+                            src="https://npmp.co.kr/web/product/tiny/202104/0e6dce5f7e5ec05eaf790242a58e838c.jpg"
+                            alt=""></li>
+                    <li style="width:352px;"><strong class="name"><a href="/product/멍티슈-두루마리/124/category/42/"
+                                class="ec-product-name"><%=product_name%></a>
+                            <div class="option "><%=product_detail_name%> </div>
+                        </strong></li>
+                    <li style="width:98px;"><strong><%=Number(selling_price)+Number(add_price)%>원</strong></li>
+                    <li style="width:75px;"><%=quantity%></li>
+                    <li style="width:98px;"><img class="point"
+                            src="//img.echosting.cafe24.com/design/skin/admin/ko_KR/ico_product_point.gif">
+                        <%=(Number(selling_price)+Number(add_price))/100%>원</li>
+                    <li style="width:98px;"><%=shpping_method%></li>
+                    <li class="shpping" style="width:85px;"></li>
+                    <li style="width:98px;"> <%=(Number(selling_price)+Number(add_price))*quantity%>원</li>
+                </ul>
+                <%}else{%>
+                <% for(var i = 0; i <product_id.length; i++){ %>
 
                 <ul class="orderlist-table-body">
                     <li><input type="checkbox"></li>
@@ -67,40 +87,41 @@
                             src="https://npmp.co.kr/web/product/tiny/202104/0e6dce5f7e5ec05eaf790242a58e838c.jpg"
                             alt=""></li>
                     <li style="width:352px;"><strong class="name"><a href="/product/멍티슈-두루마리/124/category/42/"
-                                class="ec-product-name">멍티슈 두루마리</a>
-                            <div class="option ">[옵션: 🧻 멍티슈 두루마리]</div>
+                                class="ec-product-name"><%=product_name[i]%></a>
+                            <div class="option "><%=product_detail_name[i]%> </div>
                         </strong></li>
-                    <li style="width:98px;"><strong>18,900원</strong></li>
-                    <li style="width:75px;">2</li>
+                    <li style="width:98px;"><strong><%=Number(selling_price[i])+Number(add_price[i])%>원</strong></li>
+                    <li style="width:75px;"><%=quantity[i]%></li>
                     <li style="width:98px;"><img class="point"
-                            src="//img.echosting.cafe24.com/design/skin/admin/ko_KR/ico_product_point.gif"> 189원</li>
-                    <li style="width:98px;">기본배송</li>
+                            src="//img.echosting.cafe24.com/design/skin/admin/ko_KR/ico_product_point.gif">
+                        <%=(Number(selling_price[i])+Number(add_price[i]))/100%>원</li>
+                    <li style="width:98px;"><%=shpping_method[i]%></li>
                     <li class="shpping" style="width:85px;"></li>
-                    <li style="width:98px;">18,900원</li>
+                    <li style="width:98px;"> <%=(Number(selling_price[i])+Number(add_price[i]))*quantity[i]%>원</li>
                 </ul>
-                <ul class="orderlist-table-body">
-                    <li><input type="checkbox"></li>
-                    <li style="width:92px;"><img class="m-img"
-                            src="https://npmp.co.kr/web/product/tiny/202104/0e6dce5f7e5ec05eaf790242a58e838c.jpg"
-                            alt=""></li>
-                    <li style="width:352px;"><strong class="name"><a href="/product/멍티슈-두루마리/124/category/42/"
-                                class="ec-product-name">멍티슈 두루마리</a>
-                            <div class="option ">[옵션: 🧻 멍티슈 두루마리]</div>
-                        </strong></li>
-                    <li style="width:98px;"><strong>18,900원</strong></li>
-                    <li style="width:75px;">2</li>
-                    <li style="width:98px;"><img class="point"
-                            src="//img.echosting.cafe24.com/design/skin/admin/ko_KR/ico_product_point.gif"> 189원</li>
-                    <li style="width:98px;">기본배송</li>
-                    <li class="shpping" style="width:85px;"></li>
-                    <li style="width:98px;">18,900원</li>
-                </ul>
+                <% }  }%>
+
+                <%if(product_id.length==1){%>
                 <ul class="orderlist-table-footer">
-                    <span class="gLeft">[기본배송]</span> 상품구매금액 <strong>97,800<span class="">
-                            (+60,000)</span></strong> + 배송비 <span id="domestic_ship_fee">0 (무료)</span> = 합계:
-                    <strong class="txtEm gIndent10"><span id="domestic_ship_fee_sum" class="txt18"
-                            style="margin-left:8px;"> 97,800</span>원</strong> <span class="displaynone"></span>
+                    <span class="gLeft">[기본배송]</span> 상품구매금액:&nbsp; <strong><%=Number(totalPrice)%>원 </strong>+배송비 <span
+                        id="domestic_ship_fee">0원(무료)</span>
+                    =합계:<strong class="txtEm gIndent10"><span id="domestic_ship_fee_sum" class="txt18"
+                            style="margin-left:8px;"><%=Number(totalPrice)%></span>원</strong> <span
+                        class="displaynone"></span>
                 </ul>
+                <%}else{%>
+                <ul class="orderlist-table-footer">
+                    <span class="gLeft">[기본배송]</span> 상품구매금액:&nbsp; <strong><%=Number(totalPrice[0])%>원 </strong>+배송비
+                    <span id="domestic_ship_fee">0원(무료)</span>
+                    =합계:<strong class="txtEm gIndent10"><span id="domestic_ship_fee_sum" class="txt18"
+                            style="margin-left:8px;"><%=Number(totalPrice[0])%></span>원</strong> <span
+                        class="displaynone"></span>
+                </ul>
+                <%}%>
+
+
+
+
 
                 <div class="cotrol-info">
                     <p class="txtWarn txt11">상품의 옵션 및 수량 변경은 상품상세 또는 장바구니에서 가능합니다.</p>
@@ -260,58 +281,83 @@
                 <div class="payment-method-wrap">
                     <div class="payment-method-area">
                         <div class="payment-method">
-                            <input id="addr_paymethod0"  value="kakaopay" type="radio" checked="checked">
-                            <label for="addr_paymethod1">카카오페이(간편결제) <a href="http://www.payco.com/payco/guide.nhn" target="_blank"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif" alt="info"></a></label>
-                            <input id="addr_paymethod0"  value="payco" type="radio">
-                            <label for="addr_paymethod1">페이코(간편결제) <a href="http://www.payco.com/payco/guide.nhn" target="_blank"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif" alt="info"></a></label>
-                            <input id="addr_paymethod0"  value="card" type="radio">
-                            <label for="addr_paymethod1">카드결제 <a href="http://www.payco.com/payco/guide.nhn" target="_blank"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif" alt="info"></a></label>
-                            <input id="addr_paymethod0"  value="phone" type="radio">
-                            <label for="addr_paymethod1">휴대폰결제 <a href="http://www.payco.com/payco/guide.nhn" target="_blank"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif" alt="info"></a></label>
-                            
-                            <input id="addr_paymethod0"  value="askro" type="radio">
-                            <label for="addr_paymethod1">에스크로 <a href="http://www.payco.com/payco/guide.nhn" target="_blank"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif" alt="info"></a></label>
-                            <input id="addr_paymethod0"  value="adrr" type="radio">
-                            <label for="addr_paymethod1">무통장입금 <a href="http://www.payco.com/payco/guide.nhn" target="_blank"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif" alt="info"></a></label>
-                            
+                            <input id="addr_paymethod0" value="kakaopay" type="radio" checked="checked">
+                            <label for="addr_paymethod1">카카오페이(간편결제) <a href="http://www.payco.com/payco/guide.nhn"
+                                    target="_blank"><img
+                                        src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif"
+                                        alt="info"></a></label>
+                            <input id="addr_paymethod0" value="payco" type="radio">
+                            <label for="addr_paymethod1">페이코(간편결제) <a href="http://www.payco.com/payco/guide.nhn"
+                                    target="_blank"><img
+                                        src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif"
+                                        alt="info"></a></label>
+                            <input id="addr_paymethod0" value="card" type="radio">
+                            <label for="addr_paymethod1">카드결제 <a href="http://www.payco.com/payco/guide.nhn"
+                                    target="_blank"><img
+                                        src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif"
+                                        alt="info"></a></label>
+                            <input id="addr_paymethod0" value="phone" type="radio">
+                            <label for="addr_paymethod1">휴대폰결제 <a href="http://www.payco.com/payco/guide.nhn"
+                                    target="_blank"><img
+                                        src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif"
+                                        alt="info"></a></label>
+
+                            <input id="addr_paymethod0" value="askro" type="radio">
+                            <label for="addr_paymethod1">에스크로 <a href="http://www.payco.com/payco/guide.nhn"
+                                    target="_blank"><img
+                                        src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif"
+                                        alt="info"></a></label>
+                            <input id="addr_paymethod0" value="adrr" type="radio">
+                            <label for="addr_paymethod1">무통장입금 <a href="http://www.payco.com/payco/guide.nhn"
+                                    target="_blank"><img
+                                        src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif"
+                                        alt="info"></a></label>
+
                         </div>
                         <div class="method">
                             <div id="kakaopay_info" class="payHelp" style="">
                                 <p class="ec-base-help">휴대폰에 설치된 카카오톡 앱에서 비밀번호 입력만으로 빠르고 안전하게 결제가 가능한 서비스 입니다.</p>
                                 <p class="ec-base-help">안드로이드의 경우 구글 플레이, 아이폰의 경우 앱 스토어에서 카카오톡 앱을 설치 한 후,<br>
-                                최초 1회 카드 및 계좌 정보를 등록하셔야 사용 가능합니다.</p>
+                                    최초 1회 카드 및 계좌 정보를 등록하셔야 사용 가능합니다.</p>
                                 <p class="ec-base-help">인터넷 익스플로러의 경우 8 이상에서만 결제 가능합니다.</p>
                                 <p class="ec-base-help">카카오머니로 결제 시, 현금영수증 발급은 ㈜카카오페이에서 발급가능합니다.</p>
                             </div>
                         </div>
                     </div>
-                    
-                        <div class="total">
-                            <h4>
-                <strong id="current_pay_name">카카오페이(간편결제) </strong> <span>최종결제 금액</span>
-                </h4>
-                            <p class="price"><span></span><input id="total_price" name="total_price" fw-filter="isFill" fw-label="결제금액" fw-msg="" class="inputTypeText" placeholder="" style="text-align:right;ime-mode:disabled;clear:none;border:0px;float:none;" size="10" readonly="1" value="37800" type="text"><span>원</span></p>
-                            <p class="paymentAgree" id="chk_purchase_agreement" style="display: none;"><input id="chk_purchase_agreement0" name="chk_purchase_agreement" fw-filter="" fw-label="구매진행 동의" fw-msg="" value="T" type="checkbox" style="display: none;"><label for="chk_purchase_agreement0">결제정보를 확인하였으며, 구매진행에 동의합니다.</label></p>
-                            <div class="ec-base-button gColumn"><a href="#none" id="btn_payment" class="btnSubmit sizeL">결제하기</a></div>
-                            <div class="mileage ">
-                                <dl class="ec-base-desc gLarge right">
-                <dt><strong>총 적립예정금액</strong></dt>
-                                    <dd id="mAllMileageSum" class="txtWarn" style="">378원</dd>
-                                </dl>
-                <dl class="ec-base-desc gLarge right">
-                <dt>상품별 적립금</dt>
-                                    <dd id="mProductMileage">378원</dd>
-                                    <dt>회원 적립금</dt>
-                                    <dd id="mMemberMileage">0원</dd>
-                                    <dt>쿠폰 적립금</dt>
-                                    <dd id="mCouponMileage">0원</dd>
-                                </dl>
-                </div>
+
+                    <div class="total">
+                        <h4>
+                            <strong id="current_pay_name">카카오페이(간편결제) </strong> <span>최종결제 금액</span>
+                        </h4>
+                        <p class="price"><span></span><input id="total_price" name="total_price" fw-filter="isFill"
+                                fw-label="결제금액" fw-msg="" class="inputTypeText" placeholder=""
+                                style="text-align:right;ime-mode:disabled;clear:none;border:0px;float:none;" size="10"
+                                readonly="1" value="37800" type="text"><span>원</span></p>
+                        <p class="paymentAgree" id="chk_purchase_agreement" style="display: none;"><input
+                                id="chk_purchase_agreement0" name="chk_purchase_agreement" fw-filter=""
+                                fw-label="구매진행 동의" fw-msg="" value="T" type="checkbox" style="display: none;"><label
+                                for="chk_purchase_agreement0">결제정보를 확인하였으며, 구매진행에 동의합니다.</label></p>
+                        <div class="ec-base-button gColumn"><a href="#none" id="btn_payment"
+                                class="btnSubmit sizeL">결제하기</a></div>
+                        <div class="mileage ">
+                            <dl class="ec-base-desc gLarge right">
+                                <dt><strong>총 적립예정금액</strong></dt>
+                                <dd id="mAllMileageSum" class="txtWarn" style="">378원</dd>
+                            </dl>
+                            <dl class="ec-base-desc gLarge right">
+                                <dt>상품별 적립금</dt>
+                                <dd id="mProductMileage">378원</dd>
+                                <dt>회원 적립금</dt>
+                                <dd id="mMemberMileage">0원</dd>
+                                <dt>쿠폰 적립금</dt>
+                                <dd id="mCouponMileage">0원</dd>
+                            </dl>
                         </div>
-                  
+                    </div>
+
                 </div>
+            </div>
         </div>
-    </div>
 
 </body>
 
