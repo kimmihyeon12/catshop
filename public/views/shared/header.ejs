@@ -1,7 +1,13 @@
 <header>
     <div class="element">
         <ul>
-            <li><a href="/login">로그인</a></li>
+            
+            <% if(userData){ %>
+                <li><a href="/logout">로그아웃</a></li>
+            <%} else{%>
+                <li><a href="/login">로그인</a></li>
+                <%}%>
+           
             <li><a href="/register">회원가입</a></li>
             <li>장바구니</li>
             <li>주문조회</li>

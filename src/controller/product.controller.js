@@ -21,7 +21,7 @@ exports.getproducts = async (req, res) => {
 
         });
     }
-   
+
 };
 
 exports.getproduct = async (req, res) => {
@@ -46,7 +46,7 @@ exports.getproduct = async (req, res) => {
 
         });
     }
-   
+
 };
 
 exports.getsubproducts = async (req, res) => {
@@ -72,5 +72,5 @@ exports.getsubproducts = async (req, res) => {
 
         });
     }
-   
+
 };

@@ -69,12 +69,11 @@ exports.register = async (req, res) => {
 
 }
 exports.login = async (req, res) => {
-    console.log(req.body);
+    
     const {
         id,
         passwd
     } = req.body;
-    console.log(id);
     if (id == '' || passwd == '') {
         return res.json({
             data: {
@@ -87,7 +86,10 @@ exports.login = async (req, res) => {
     if (vaildId.success) {
         const passwdVerification = await userRepository.findPasswd(id, passwd);
         if (passwdVerification.success) {
-
+         
+            req.session.userData=passwdVerification.data;
+            req.session.save();
+            console.log(req.session.userData);
             return res.json({
                 data: passwdVerification
             });

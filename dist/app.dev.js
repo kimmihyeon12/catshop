@@ -18,7 +18,14 @@ var bodyParser = require("body-parser");
 
 var session = require('express-session');
 
-var PORT = 3000; //morgan
+var PORT = 3000;
+
+var cookieParser = require('cookie-parser');
+
+app.use(cookieParser());
+app.use(session({
+  secret: "Funny secret"
+})); //morgan
 
 var logger = require('morgan');
 
@@ -35,10 +42,12 @@ app.use(express.urlencoded({
 }));
 app.use(session({
   secret: 'cat',
+  HttpOnly: true,
+  secure: true,
   resave: false,
   saveUninitialized: true,
   cookie: {
-    secure: true
+    maxAge: 24000 * 60 * 60
   }
 }));
 app.use(userRouter);

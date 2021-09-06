@@ -129,12 +129,10 @@ exports.login = function _callee2(req, res) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          console.log(req.body);
           _req$body2 = req.body, id = _req$body2.id, passwd = _req$body2.passwd;
-          console.log(id);
 
           if (!(id == '' || passwd == '')) {
-            _context2.next = 5;
+            _context2.next = 3;
             break;
           }
 
@@ -145,44 +143,47 @@ exports.login = function _callee2(req, res) {
             }
           }));
 
-        case 5:
-          _context2.next = 7;
+        case 3:
+          _context2.next = 5;
           return regeneratorRuntime.awrap(userRepository.findId(id));
 
-        case 7:
+        case 5:
           vaildId = _context2.sent;
 
           if (!vaildId.success) {
+            _context2.next = 18;
+            break;
+          }
+
+          _context2.next = 9;
+          return regeneratorRuntime.awrap(userRepository.findPasswd(id, passwd));
+
+        case 9:
+          passwdVerification = _context2.sent;
+
+          if (!passwdVerification.success) {
             _context2.next = 17;
             break;
           }
 
-          _context2.next = 11;
-          return regeneratorRuntime.awrap(userRepository.findPasswd(id, passwd));
-
-        case 11:
-          passwdVerification = _context2.sent;
-
-          if (!passwdVerification.success) {
-            _context2.next = 16;
-            break;
-          }
-
-          return _context2.abrupt("return", res.json({
-            data: passwdVerification
-          }));
-
-        case 16:
+          req.session.userData = passwdVerification.data;
+          req.session.save();
+          console.log(req.session.userData);
           return _context2.abrupt("return", res.json({
             data: passwdVerification
           }));
 
         case 17:
           return _context2.abrupt("return", res.json({
-            data: vaildId
+            data: passwdVerification
           }));
 
         case 18:
+          return _context2.abrupt("return", res.json({
+            data: vaildId
+          }));
+
+        case 19:
         case "end":
           return _context2.stop();
       }

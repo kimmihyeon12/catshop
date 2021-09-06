@@ -137,6 +137,10 @@ exports.findPasswd = function (id, passwd) {
     });
   }).then(function (data) {
     if (data.length != 0) return {
+      data: {
+        "id": data[0].id,
+        "user_id": data[0].user_id
+      },
       success: true,
       message: "비밀번호 일치"
     };

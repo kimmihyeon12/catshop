@@ -8,7 +8,10 @@ var orderController = require("../controller/order.controller"); // page(화면)
 
 
 router.get("/", function (req, res) {
-  res.render("index");
+  console.log(req.session.userData);
+  res.render("index", {
+    userData: req.session.userData
+  });
 });
 router.get("/dog", function (req, res) {
   res.render("dog");

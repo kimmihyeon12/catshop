@@ -6,9 +6,22 @@ const userContoller = require("../controller/user.controller");
 
 //login
 router.get("/login", (req, res) => {
+    if(req.session.userData){
+        console.log("유저데이터 있음");
+    }
     res.render("login");
+    
 });
 router.post("/login",userContoller.login);
+
+router.get("/logout", (req, res)=>{
+
+    
+    req.session.destroy(()=>{
+        res.redirect("/");
+    });
+    
+});
 
 
 //register

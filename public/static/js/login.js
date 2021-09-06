@@ -19,6 +19,7 @@ loginBtn.addEventListener("click", () => {
         body:JSON.stringify(req),
     }).then((res)=> res.json()).then((res)=>{
         if(res.data.success){
+         
             console.log("이동")
             location.href="/";
         }else{

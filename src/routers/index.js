@@ -5,7 +5,10 @@ const router = express.Router();
 const orderController = require("../controller/order.controller");
 // page(화면) 보기
 router.get("/", (req, res)=>{
-    res.render("index");
+    console.log(req.session.userData);
+    res.render("index", {
+        userData: req.session.userData
+    });
 });
 router.get("/dog", (req, res)=>{
     res.render("dog");
