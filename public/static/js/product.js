@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     const productConsumerPrice = res.data.product[0].consumer_price;
     const productSellingPrice = res.data.product[0].selling_price;
     const shppingMethod = res.data.product[0].shpping_method;
-    const shppingPrice = res.data.product[0].shpping_price;
+    let shppingPrice = res.data.product[0].shpping_price; // 2500원.. (택배)
     const productImgs = res.data.product[0].img_url.split(",");
     //order로 전송되는 데이터
     const resRequest = [];
@@ -108,7 +108,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
         </div>
         <div  class="totalPrice">
-            <strong>총 상품금액</strong>(수량) : <span class="total"><strong><em id="totalPrice">0</em>원</strong> (0개)(배송비+<p class="s-price" style="display:inline-block">${shppingPrice}</p>원)</span>
+            <strong>총 상품금액</strong> : <span class="total"><strong><em id="totalPrice">0</em>원</strong>(배송비+<p class="s-price" style="display:inline-block">${shppingPrice}</p>원)</span>
         </div>
         <div class="ec-base-button gColumn">
 
@@ -127,8 +127,9 @@ window.addEventListener("DOMContentLoaded", async () => {
     const selectOption = document.querySelector(".option-price");
     const items = document.querySelector("#items");
     const price = document.querySelector("#totalPrice");
+    const count = document.querySelector(".total-count");
     let quantitybox;
-    totalPrice += shppingPrice;
+ 
 
     // 인풋 값 상태
     const numArray = [];
@@ -141,6 +142,7 @@ window.addEventListener("DOMContentLoaded", async () => {
             console.log("form");
             const form = document.createElement("form");
         for (let i = 0; i < resRequest.length; i++) {
+            resRequest[i].shppingPrice = shppingPrice;
             resRequest[i].totalPrice = totalPrice;
             if(quantitybox[i]!=null)
             resRequest[i].quantity = quantitybox[i].value;
@@ -177,12 +179,20 @@ window.addEventListener("DOMContentLoaded", async () => {
         datasetPrice = Number(selectOption.options[selectOption.selectedIndex].dataset.price);
         totalPrice += productSellingPrice;
         totalPrice += datasetPrice;
+        
+        if (totalPrice > 35000) {
+            shppingPrice=0;
+            price.innerText = totalPrice +shppingPrice;
+            document.querySelector(".s-price").innerText = shppingPrice;
+        } else {
+            shppingPrice=2500;
+            price.innerText = totalPrice +shppingPrice;
+            document.querySelector(".s-price").innerText = shppingPrice;
+        }
+
         price.innerText = totalPrice;
    
         resRequest.push(res.data.product[select.value]);
-        console.log(resRequest);
-        console.log("res.data.product");
-        console.log(res.data.product);
         numArray.push(1);
         numArrayCounter++;
 
@@ -214,11 +224,13 @@ window.addEventListener("DOMContentLoaded", async () => {
 
 
         if (totalPrice > 35000) {
-            price.innerText = totalPrice - (2500);
-            document.querySelector(".s-price").innerText = 0;
+            shppingPrice=0;
+            price.innerText = totalPrice +shppingPrice;
+            document.querySelector(".s-price").innerText = shppingPrice;
         } else {
-            price.innerText = totalPrice;
-            document.querySelector(".s-price").innerText = 2500;
+            shppingPrice=2500;
+            price.innerText = totalPrice +shppingPrice;
+            document.querySelector(".s-price").innerText = shppingPrice;
         }
 
 
@@ -254,11 +266,13 @@ window.addEventListener("DOMContentLoaded", async () => {
                 totalPrice += productSellingPrice + Number(qPrice[i].dataset.datasetprice);
 
                 if (totalPrice > 35000) {
-                    price.innerText = totalPrice - (2500);
-                    document.querySelector(".s-price").innerText = 0;
+                    shppingPrice=0;
+                    price.innerText = totalPrice +shppingPrice;
+                    document.querySelector(".s-price").innerText = shppingPrice;
                 } else {
-                    price.innerText = totalPrice;
-                    document.querySelector(".s-price").innerText = 2500;
+                    shppingPrice=2500;
+                    price.innerText = totalPrice +shppingPrice;
+                    document.querySelector(".s-price").innerText = shppingPrice;
                 }
             })
             btnDowns[i].addEventListener("click", () => {
@@ -269,11 +283,13 @@ window.addEventListener("DOMContentLoaded", async () => {
                     //최종가격
                     totalPrice -= productSellingPrice + Number(qPrice[i].dataset.datasetprice);
                     if (totalPrice > 35000) {
-                        price.innerText = totalPrice - (2500);
-                        document.querySelector(".s-price").innerText = 0;
+                        shppingPrice=0;
+                        price.innerText = totalPrice +shppingPrice;
+                        document.querySelector(".s-price").innerText = shppingPrice;
                     } else {
-                        price.innerText = totalPrice;
-                        document.querySelector(".s-price").innerText = 2500;
+                        shppingPrice=2500;
+                        price.innerText = totalPrice +shppingPrice;
+                        document.querySelector(".s-price").innerText = shppingPrice;
                     }
                 }
             })

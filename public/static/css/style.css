@@ -809,16 +809,20 @@ body {
           height: 60px;
           display: flex;
           align-items: center;
-          background: #f6f6f6; }
+          background: #f6f6f6;
+          position: relative; }
           body .order-wrap .order-form .orderlist-area .orderlist-table-footer .gLeft {
             margin-left: 30px;
             margin-right: 580px; }
-          body .order-wrap .order-form .orderlist-area .orderlist-table-footer strong {
-            font-weight: 600; }
-          body .order-wrap .order-form .orderlist-area .orderlist-table-footer .gIndent10 {
-            color: #008bcc; }
-            body .order-wrap .order-form .orderlist-area .orderlist-table-footer .gIndent10 .txt18 {
-              font-size: 18px; }
+          body .order-wrap .order-form .orderlist-area .orderlist-table-footer .total-price-wrap {
+            position: absolute;
+            right: 15px; }
+            body .order-wrap .order-form .orderlist-area .orderlist-table-footer .total-price-wrap strong {
+              font-weight: 600; }
+            body .order-wrap .order-form .orderlist-area .orderlist-table-footer .total-price-wrap .gIndent10 {
+              color: #008bcc; }
+              body .order-wrap .order-form .orderlist-area .orderlist-table-footer .total-price-wrap .gIndent10 .txt18 {
+                font-size: 18px; }
     body .order-wrap .order-area li {
       display: flex; }
       body .order-wrap .order-area li .order-area-title {

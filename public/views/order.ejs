@@ -100,22 +100,30 @@
                     <li style="width:98px;"> <%=(Number(selling_price[i])+Number(add_price[i]))*quantity[i]%>원</li>
                 </ul>
                 <% }  }%>
-
+               
                 <%if(product_id.length==1){%>
                 <ul class="orderlist-table-footer">
-                    <span class="gLeft">[기본배송]</span> 상품구매금액:&nbsp; <strong><%=Number(totalPrice)%>원 </strong>+배송비 <span
-                        id="domestic_ship_fee">0원(무료)</span>
+                    <span class="gLeft">[기본배송]</span> 
+                    <div class="total-price-wrap">
+                        상품구매금액:&nbsp; <strong><%=Number(totalPrice)%>원 </strong>+배송비 <span
+                        id="domestic_ship_fee"><%=shppingPrice%>원</span>
                     =합계:<strong class="txtEm gIndent10"><span id="domestic_ship_fee_sum" class="txt18"
-                            style="margin-left:8px;"><%=Number(totalPrice)%></span>원</strong> <span
+                            style="margin-left:8px;"><%=Number(totalPrice)+Number(shppingPrice)%></span>원</strong> <span
                         class="displaynone"></span>
+                    </div>
+                    
                 </ul>
                 <%}else{%>
                 <ul class="orderlist-table-footer">
-                    <span class="gLeft">[기본배송]</span> 상품구매금액:&nbsp; <strong><%=Number(totalPrice[0])%>원 </strong>+배송비
-                    <span id="domestic_ship_fee">0원(무료)</span>
+                    <span class="gLeft">[기본배송]</span> 
+                    <div class="total-price-wrap">
+                        상품구매금액:&nbsp; <strong><%=Number(totalPrice[0])%>원 </strong>+배송비 <span
+                        id="domestic_ship_fee"><%=shppingPrice[0]%>원</span>
                     =합계:<strong class="txtEm gIndent10"><span id="domestic_ship_fee_sum" class="txt18"
-                            style="margin-left:8px;"><%=Number(totalPrice[0])%></span>원</strong> <span
+                            style="margin-left:8px;"><%=Number(totalPrice[0])+Number(shppingPrice[0])%></span>원</strong> <span
                         class="displaynone"></span>
+                    </div>
+                    
                 </ul>
                 <%}%>
 
@@ -222,7 +230,7 @@
 
                     </div>
                     <div class="total-area-content">
-                        <p><span>37,800</span>원</p>
+                        <p><span><%=Number(totalPrice)+Number(shppingPrice)%></span>원</p>
                         <p>-<span>0</span>원</p>
                         <p class="total">=<span>37,800</span>원</p>
 

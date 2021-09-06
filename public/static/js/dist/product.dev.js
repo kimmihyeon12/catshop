@@ -6,7 +6,7 @@ var totalPrice = 0;
 var totalCount = 0;
 var detailArea = document.querySelector(".detailArea");
 window.addEventListener("DOMContentLoaded", function _callee2() {
-  var originPath, product_id, res, productName, productExplanation, productConsumerPrice, productSellingPrice, shppingMethod, shppingPrice, productImgs, resRequest, detailName, addPrice, i, _i, _i2, btnBuy, selectOption, items, price, quantitybox, numArray, numArrayCounter, selectContainer, selectvalue, select;
+  var originPath, product_id, res, productName, productExplanation, productConsumerPrice, productSellingPrice, shppingMethod, shppingPrice, productImgs, resRequest, detailName, addPrice, i, _i, _i2, btnBuy, selectOption, items, price, count, quantitybox, numArray, numArrayCounter, selectContainer, selectvalue, select;
 
   return regeneratorRuntime.async(function _callee2$(_context2) {
     while (1) {
@@ -29,7 +29,8 @@ window.addEventListener("DOMContentLoaded", function _callee2() {
           productConsumerPrice = res.data.product[0].consumer_price;
           productSellingPrice = res.data.product[0].selling_price;
           shppingMethod = res.data.product[0].shpping_method;
-          shppingPrice = res.data.product[0].shpping_price;
+          shppingPrice = res.data.product[0].shpping_price; // 2500원.. (택배)
+
           productImgs = res.data.product[0].img_url.split(","); //order로 전송되는 데이터
 
           resRequest = [];
@@ -54,14 +55,14 @@ window.addEventListener("DOMContentLoaded", function _callee2() {
             codes += " <option value=".concat(_i2, "  link_image=\"\" data-price=\"").concat(addPrice[_i2], "\" data-detailname=\"").concat(detailName[_i2], "\">").concat(detailName[_i2], " (+").concat(addPrice[_i2], "\uC6D0)</option>");
           }
 
-          codes += "\n                    </select>\n                    <p class=\"value\"></p>\n                </td>\n            </tr>\n        </div>\n        <div class=\"guideArea\">\n\n            <p class=\"info \">(\uCD5C\uC18C\uC8FC\uBB38\uC218\uB7C9 1\uAC1C \uC774\uC0C1<span class=\"\"> / \uCD5C\uB300\uC8FC\uBB38\uC218\uB7C9 100\uAC1C \uC774\uD558</span>)</p>\n\n        </div>\n        <div id=\"items\">\n\n        </div>\n        <div  class=\"totalPrice\">\n            <strong>\uCD1D \uC0C1\uD488\uAE08\uC561</strong>(\uC218\uB7C9) : <span class=\"total\"><strong><em id=\"totalPrice\">0</em>\uC6D0</strong> (0\uAC1C)(\uBC30\uC1A1\uBE44+<p class=\"s-price\" style=\"display:inline-block\">".concat(shppingPrice, "</p>\uC6D0)</span>\n        </div>\n        <div class=\"ec-base-button gColumn\">\n\n            <span class=\"btn-buy\" id=\"btnBuy\">\uBC14\uB85C \uAD6C\uB9E4\uD558\uAE30</span>\n            <span id=\"btnBuy\">\uC7A5\uBC14\uAD6C\uB2C8 \uB2F4\uAE30</span>\n            <span id=\"btnBuy\">\uAD00\uC2EC\uC0C1\uD488\uB4F1\uB85D</span>\n\n        </div>\n    </div>\n    ");
+          codes += "\n                    </select>\n                    <p class=\"value\"></p>\n                </td>\n            </tr>\n        </div>\n        <div class=\"guideArea\">\n\n            <p class=\"info \">(\uCD5C\uC18C\uC8FC\uBB38\uC218\uB7C9 1\uAC1C \uC774\uC0C1<span class=\"\"> / \uCD5C\uB300\uC8FC\uBB38\uC218\uB7C9 100\uAC1C \uC774\uD558</span>)</p>\n\n        </div>\n        <div id=\"items\">\n\n        </div>\n        <div  class=\"totalPrice\">\n            <strong>\uCD1D \uC0C1\uD488\uAE08\uC561</strong> : <span class=\"total\"><strong><em id=\"totalPrice\">0</em>\uC6D0</strong>(\uBC30\uC1A1\uBE44+<p class=\"s-price\" style=\"display:inline-block\">".concat(shppingPrice, "</p>\uC6D0)</span>\n        </div>\n        <div class=\"ec-base-button gColumn\">\n\n            <span class=\"btn-buy\" id=\"btnBuy\">\uBC14\uB85C \uAD6C\uB9E4\uD558\uAE30</span>\n            <span id=\"btnBuy\">\uC7A5\uBC14\uAD6C\uB2C8 \uB2F4\uAE30</span>\n            <span id=\"btnBuy\">\uAD00\uC2EC\uC0C1\uD488\uB4F1\uB85D</span>\n\n        </div>\n    </div>\n    ");
           detailArea.innerHTML = codes;
           btnBuy = document.querySelector(".btn-buy");
           selectOption = document.querySelector(".option-price");
           items = document.querySelector("#items");
           price = document.querySelector("#totalPrice");
-          totalPrice += shppingPrice; // 인풋 값 상태
-
+          count = document.querySelector(".total-count");
+          // 인풋 값 상태
           numArray = [];
           numArrayCounter = -1;
           selectContainer = ["*"];
@@ -78,6 +79,7 @@ window.addEventListener("DOMContentLoaded", function _callee2() {
                     form = document.createElement("form");
 
                     for (_i3 = 0; _i3 < resRequest.length; _i3++) {
+                      resRequest[_i3].shppingPrice = shppingPrice;
                       resRequest[_i3].totalPrice = totalPrice;
                       if (quantitybox[_i3] != null) resRequest[_i3].quantity = quantitybox[_i3].value;
                       datas = resRequest[_i3]; //order page로 data 보내기
@@ -117,11 +119,19 @@ window.addEventListener("DOMContentLoaded", function _callee2() {
             datasetPrice = Number(selectOption.options[selectOption.selectedIndex].dataset.price);
             totalPrice += productSellingPrice;
             totalPrice += datasetPrice;
+
+            if (totalPrice > 35000) {
+              shppingPrice = 0;
+              price.innerText = totalPrice + shppingPrice;
+              document.querySelector(".s-price").innerText = shppingPrice;
+            } else {
+              shppingPrice = 2500;
+              price.innerText = totalPrice + shppingPrice;
+              document.querySelector(".s-price").innerText = shppingPrice;
+            }
+
             price.innerText = totalPrice;
             resRequest.push(res.data.product[select.value]);
-            console.log(resRequest);
-            console.log("res.data.product");
-            console.log(res.data.product);
             numArray.push(1);
             numArrayCounter++;
             items.innerHTML += "\n        <div class=\"item-container\">\n            <div  style=\"font-size:12px; display:flex; align-items:center; border-top:1px solid lightgrey; padding-bottom:10px\">\n                <div class=\"q-price\" data-datasetprice=".concat(datasetPrice, " style=\"width:300px\"> \n                    <p class=\"info\" style=\"font-weight:600; padding:8px 0px\">").concat(productName, "</p>  \n                    <p class=\"info\">- ").concat(selectOption.options[selectOption.selectedIndex].dataset.detailname, "(+").concat(datasetPrice, "\uC6D0)</p>\n                </div>\n                <div style=\"display:flex; width:110px; align-items:center;\">\n                    <input type=\"text\" style=\"width:30px;\" class=\"option_box1_quantity\" value=\"1\" name=\"quantity_opt[]\" product-no=\"106\">\n                    <div class=\"btn-wrap\" style=\" display:flex; flex-direction:column;\">\n                            <img class=\"btn-up\" style=\"width:20px\" src=\"//img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif\" id=\"option_box1_up\" class=\"option_box_up\" style=\"display:inline-block;\" alt=\"\uC218\uB7C9\uC99D\uAC00\">\n                            <img class=\"btn-down\" style=\"width:20px\" src=\"//img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif\" id=\"option_box1_down\" class=\"option_box_down\" alt=\"\uC218\uB7C9\uAC10\uC18C\">\n                    </div>\n                    <img class=\"btn-cancel\" style=\"width:10px; height:10px; margin-left:10px;\" src=\"//img.echosting.cafe24.com/design/skin/default/product/btn_price_delete.gif\" alt=\"\uC0AD\uC81C\" id=\"option_box1_del\" class=\"option_box_del\">\n                </div>\n                <div style=\"\">\n                    <p class=\"selling-price\" style=\"font-weight:600\" >").concat(productSellingPrice + datasetPrice, "\uC6D0</p>\n                </div>\n            </div>\n        </div>"); //items.style.borderBottom = `1px solid grey`;
@@ -130,11 +140,13 @@ window.addEventListener("DOMContentLoaded", function _callee2() {
             select.value = "*";
 
             if (totalPrice > 35000) {
-              price.innerText = totalPrice - 2500;
-              document.querySelector(".s-price").innerText = 0;
+              shppingPrice = 0;
+              price.innerText = totalPrice + shppingPrice;
+              document.querySelector(".s-price").innerText = shppingPrice;
             } else {
-              price.innerText = totalPrice;
-              document.querySelector(".s-price").innerText = 2500;
+              shppingPrice = 2500;
+              price.innerText = totalPrice + shppingPrice;
+              document.querySelector(".s-price").innerText = shppingPrice;
             }
 
             var sellingPrice = document.querySelectorAll(".selling-price");
@@ -169,11 +181,13 @@ window.addEventListener("DOMContentLoaded", function _callee2() {
                 totalPrice += productSellingPrice + Number(qPrice[_i5].dataset.datasetprice);
 
                 if (totalPrice > 35000) {
-                  price.innerText = totalPrice - 2500;
-                  document.querySelector(".s-price").innerText = 0;
+                  shppingPrice = 0;
+                  price.innerText = totalPrice + shppingPrice;
+                  document.querySelector(".s-price").innerText = shppingPrice;
                 } else {
-                  price.innerText = totalPrice;
-                  document.querySelector(".s-price").innerText = 2500;
+                  shppingPrice = 2500;
+                  price.innerText = totalPrice + shppingPrice;
+                  document.querySelector(".s-price").innerText = shppingPrice;
                 }
               });
 
@@ -186,11 +200,13 @@ window.addEventListener("DOMContentLoaded", function _callee2() {
                   totalPrice -= productSellingPrice + Number(qPrice[_i5].dataset.datasetprice);
 
                   if (totalPrice > 35000) {
-                    price.innerText = totalPrice - 2500;
-                    document.querySelector(".s-price").innerText = 0;
+                    shppingPrice = 0;
+                    price.innerText = totalPrice + shppingPrice;
+                    document.querySelector(".s-price").innerText = shppingPrice;
                   } else {
-                    price.innerText = totalPrice;
-                    document.querySelector(".s-price").innerText = 2500;
+                    shppingPrice = 2500;
+                    price.innerText = totalPrice + shppingPrice;
+                    document.querySelector(".s-price").innerText = shppingPrice;
                   }
                 }
               });
